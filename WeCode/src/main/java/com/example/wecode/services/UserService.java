@@ -1,5 +1,6 @@
 package com.example.wecode.services;
 
+import com.example.wecode.models.Company;
 import com.example.wecode.models.LoginUser;
 import com.example.wecode.models.User;
 import com.example.wecode.repositories.UserRepository;
@@ -19,6 +20,13 @@ public class UserService {
     @Autowired
     private UserRepository userRepo;
 
+
+    public void deleteUserById(Long id) {
+        userRepo.deleteById(id);
+    }
+    public void deleteUser(User b) {
+        userRepo.delete(b);
+    }
     public List<User> allUsers(){
         return userRepo.findAll();
     }

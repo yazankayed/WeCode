@@ -2,27 +2,20 @@ package com.example.wecode.services;
 
 import com.example.wecode.models.Company;
 import com.example.wecode.models.LoginCompany;
-import com.example.wecode.models.LoginUser;
 import com.example.wecode.models.User;
 import com.example.wecode.repositories.CompanyRepository;
-import com.example.wecode.repositories.UserRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
-
 import java.util.List;
 import java.util.Optional;
 
-import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.validation.BindingResult;
+
 
 import java.util.List;
 import java.util.Optional;
 @Service
-
 public class CompanyService {
 
 
@@ -59,7 +52,33 @@ public class CompanyService {
     public Company updateCompany(Company u) {
         return companyRepo.save(u);
     }
+    public void deleteCompanyById(Long id) {
+        companyRepo.deleteById(id);
+    }
+    public void deleteCompany(Company b) {
+        companyRepo.delete(b);
+    }
 
+
+    public Company register(Company newCompany, BindingResult result) {
+        //.matches("^[a-zA-Z]*$")
+        if (!(newCompany.getCompanyName()).matches("^[a-zA-Z]*$")) {
+            result.rejectValue("companyName","Invalid","Use Letters only!");
+        }
+        if (companyRepo.findByEmail(newCompany.getEmail()).isPresent()) {
+            result.rejectValue("email","Unique","This is a used email! Try another one.");
+        }
+        if (!newCompany.getPassword().equals(newCompany.getConfirm())) {
+            result.rejectValue("confirm","Matches","Confirm password must match password.");
+        }
+        if (result.hasErrors()) {
+            return null;
+        }else {
+            String hashedPW = BCrypt.hashpw(newCompany.getPassword(), BCrypt.gensalt());
+            newCompany.setPassword(hashedPW);
+            return companyRepo.save(newCompany);
+        }
+    }
     public Company login(LoginCompany newLoginObject, BindingResult result) {
         if(result.hasErrors()) {
             return null;

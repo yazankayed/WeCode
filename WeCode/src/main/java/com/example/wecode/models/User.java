@@ -29,9 +29,7 @@ public class User {
     private int idNum;
      private boolean status;
 
-    @Min(0)
-    @Max(10)
-    private int rating;
+
 
 
     @NotEmpty(message="Location is required!")
@@ -74,6 +72,15 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id")
     private Category category;
+
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "users_skills",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "skills_id")
+    )
+    private List<Skills> skills;
 
 
 
@@ -121,13 +128,7 @@ public class User {
         this.status = status;
     }
 
-    public int getRating() {
-        return rating;
-    }
 
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
 
     public String getLocation() {
         return location;
@@ -193,6 +194,15 @@ public class User {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+
+    public List<Skills> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skills> skills) {
+        this.skills = skills;
     }
 
     @PrePersist
