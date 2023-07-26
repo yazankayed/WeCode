@@ -122,7 +122,7 @@ public class HomeController {
 
 
 
-    @PostMapping("/logincompany")
+    @PostMapping ("/logincompany")
     public String companyLogin(@Valid @ModelAttribute("newLoginCompany") LoginCompany newLoginCompany,
                         BindingResult result, Model model, HttpSession session) {
         Company logCompany = companyService.login(newLoginCompany, result);
@@ -146,7 +146,7 @@ public class HomeController {
     @GetMapping("/logoutcompany")
     public String logoutCompany(HttpSession session) {
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/logincompany";
     }
 
 

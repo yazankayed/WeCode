@@ -21,20 +21,22 @@ public class User {
     private String userName;
     @NotNull(message="Years of experience is required!")
     @Min(0)
-    private int experience;
+    private int experience = 0;
 
 
     @NotNull(message="ID Number is required!")
+    @Max(999999999)
     @Min(100000000)
-    private int idNum;
-     private boolean status;
+    private int idNum = 100000001;
+
+    @NotNull
+     private boolean status =false;
 
 
 
 
-    @NotEmpty(message="Location is required!")
     @Size(min=3, max=30, message="Location must be between 3 and 30 characters")
-    private String location;
+    private String location = null;
 
 
 
