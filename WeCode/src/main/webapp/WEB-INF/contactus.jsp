@@ -5,7 +5,7 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
-    <title>Title</title>
+    <title></title>
 </head>
 <body>
 

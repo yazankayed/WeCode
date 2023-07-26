@@ -19,6 +19,14 @@ public class User {
     @NotEmpty(message="Username is required!")
     @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
     private String userName;
+
+    @NotBlank(message="Image is required!")
+    private String image = null;
+
+    @NotBlank(message="CV is required!")
+    private String cv= null;
+
+
     @NotNull(message="Years of experience is required!")
     @Min(0)
     private int experience = 0;
