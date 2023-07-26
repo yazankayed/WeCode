@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -57,7 +54,7 @@ public class HomeController {
         User regUser = userServ.register(newUser, result);
         if(result.hasErrors()) {
             model.addAttribute("newLogin", new LoginUser());
-            return "login.jsp";
+            return "testingyazanlogin.jsp";
         }
         session.setAttribute("user_id", regUser.getId());
         return "redirect:/success";
@@ -69,7 +66,7 @@ public class HomeController {
         User logUser = userServ.login(newLogin, result);
         if(result.hasErrors()) {
             model.addAttribute("newUser", new User());
-            return "login.jsp";
+            return "testingyazanlogin.jsp";
         }
         session.setAttribute("user_id", logUser.getId());
         return "redirect:/success";
@@ -78,8 +75,39 @@ public class HomeController {
 
 
 //    updating info
+    @GetMapping("/update")
+    public String updatingform(Model model, HttpSession session ,@ModelAttribute("user") User user) {
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+            return "updateuserprofile.jsp";
+        }
+        return "redirect:/";
+    }
+
+//    @PutMapping("/update")
+//    public String update(@Valid @ModelAttribute("user") User user, BindingResult result,
+//                         @RequestParam("title") String title,                        )
+//    {
+//        if (result.hasErrors()) {
+//            return "updateuserprofile.jsp";
+//        }
+//        userServ.updateUser(user);
+//        return "redirect:/success";
+//    }
 
 
+
+    @GetMapping("/test")
+    public String testingyazan(Model model, HttpSession session) {
+        if (session.getAttribute("user_id")!=null) {
+            return "redirect:/success";
+        }
+        model.addAttribute("newUser", new User());
+        model.addAttribute("newLogin", new LoginUser());
+        return "testingyazanlogin.jsp";
+    }
 
 
 
