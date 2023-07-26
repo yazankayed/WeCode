@@ -54,7 +54,7 @@ public class HomeController {
         User regUser = userServ.register(newUser, result);
         if(result.hasErrors()) {
             model.addAttribute("newLogin", new LoginUser());
-            return "testingyazanlogin.jsp";
+            return "login.jsp";
         }
         session.setAttribute("user_id", regUser.getId());
         return "redirect:/success";
@@ -66,7 +66,7 @@ public class HomeController {
         User logUser = userServ.login(newLogin, result);
         if(result.hasErrors()) {
             model.addAttribute("newUser", new User());
-            return "testingyazanlogin.jsp";
+            return "login.jsp";
         }
         session.setAttribute("user_id", logUser.getId());
         return "redirect:/success";
