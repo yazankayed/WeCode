@@ -86,16 +86,26 @@ public class HomeController {
         return "redirect:/";
     }
 
-//    @PutMapping("/update")
-//    public String update(@Valid @ModelAttribute("user") User user, BindingResult result,
-//                         @RequestParam("title") String title,                        )
-//    {
-//        if (result.hasErrors()) {
-//            return "updateuserprofile.jsp";
-//        }
+    @PutMapping("/update")
+    public String update(@Valid  BindingResult result,Model model, HttpSession session ,
+                         @RequestParam("userName") String userName,
+                         @RequestParam("email") String email,
+                         @RequestParam("idNum") String idNum,
+                         @RequestParam("experience") String experience,
+                         @RequestParam("location") String location,
+                         @RequestParam("cv") String cv,
+                         @RequestParam("image") String image,
+                         @RequestParam("status") String status )
+    {
+        Long userId = (Long) session.getAttribute("user_id");
+        User currentUser = userServ.findUserById(userId);
+        model.addAttribute("currentUser", currentUser);
+        if (result.hasErrors()) {
+            return "updateuserprofile.jsp";
+        }
 //        userServ.updateUser(user);
-//        return "redirect:/success";
-//    }
+        return "redirect:/success";
+    }
 
 
 
