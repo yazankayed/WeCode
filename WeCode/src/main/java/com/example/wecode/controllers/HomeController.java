@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
+import org.json.JSONArray;
 @Controller
 public class HomeController {
     private final UserService userServ;
@@ -76,7 +76,7 @@ public class HomeController {
 
 //    updating info
     @GetMapping("/update")
-    public String updatingform(Model model, HttpSession session ,@ModelAttribute("user") User user) {
+    public String updatingForm(Model model, HttpSession session ) {
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
@@ -86,12 +86,12 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PutMapping("/update")
-    public String update(@Valid  BindingResult result,Model model, HttpSession session ,
+    @PostMapping("/updateuser")
+    public String update(  HttpSession session ,
                          @RequestParam("userName") String userName,
                          @RequestParam("email") String email,
-                         @RequestParam("idNum") String idNum,
-                         @RequestParam("experience") String experience,
+                         @RequestParam("idNum") Integer idNum,
+                         @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
                          @RequestParam("image") String image,
@@ -99,11 +99,21 @@ public class HomeController {
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
-        model.addAttribute("currentUser", currentUser);
-        if (result.hasErrors()) {
-            return "updateuserprofile.jsp";
-        }
-//        userServ.updateUser(user);
+//        model.addAttribute("currentUser", currentUser);
+//        if (result.hasErrors()) {
+//            return "updateuserprofile.jsp";
+//        }
+
+        currentUser.setUserName(userName);
+        currentUser.setEmail(email);
+        currentUser.setIdNum(idNum);
+        currentUser.setExperience(experience);
+        currentUser.setLocation(location);
+        currentUser.setCv(cv);
+        currentUser.setImage(image);
+        currentUser.setStatus(Boolean.parseBoolean(status));
+        userServ.updateUser(currentUser);
+
         return "redirect:/success";
     }
 
@@ -362,7 +372,19 @@ public class HomeController {
 
 
 
+    @GetMapping("/SkillCharTesting")
+    public  String ss(HttpSession session,Model model){
+        int[] arr = new int[]{65, 59, 90, 81, 56, 55, 40,90};
+        int[] arr2 = new int[]{28, 48, 40, 19, 16, 27, 40,1};
 
+        JSONArray jsonArray = new JSONArray(arr);
+        JSONArray jsonArray2 = new JSONArray(arr2);
+
+        model.addAttribute("lotfi",jsonArray);
+        model.addAttribute("Yazan",jsonArray2);
+
+        return "SkillCharTesting.jsp";
+    }
 
 
 
