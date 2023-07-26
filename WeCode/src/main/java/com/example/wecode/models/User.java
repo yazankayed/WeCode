@@ -124,6 +124,32 @@ public class User {
         this.userName = userName;
     }
 
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getCv() {
+        return cv;
+    }
+
+    public void setCv(String cv) {
+        this.cv = cv;
+    }
+
+    public List<Chat> getChats() {
+        return chats;
+    }
+
+    public void setChats(List<Chat> chats) {
+        this.chats = chats;
+    }
+
+
     public int getIdNum() {
         return idNum;
     }
