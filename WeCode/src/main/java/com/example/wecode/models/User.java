@@ -17,7 +17,7 @@ public class User {
     private Long id;
 
     @NotEmpty(message="Username is required!")
-    @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
+    @Size(min=3, max=300, message="Username must be between 3 and 30 characters")
     private String userName;
 
     @Size(min=3, max=30, message="Image must be between 3 and 30 characters")
@@ -27,18 +27,15 @@ public class User {
     private String cv= null;
 
 
-    @NotNull(message="Years of experience is required!")
     @Min(0)
-    private int experience = 0;
+    private Integer experience = 0;
 
 
-    @NotNull(message="ID Number is required!")
     @Max(999999999)
     @Min(100000000)
-    private int idNum = 100000001;
+    private Integer idNum = 100000001;
 
-    @NotNull
-     private boolean status =false;
+     private boolean status =true;
 
 
 
@@ -108,18 +105,6 @@ public class User {
         this.id = id;
     }
 
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
-
-
-
-
     public String getUserName() {
         return userName;
     }
@@ -127,7 +112,6 @@ public class User {
     public void setUserName(String userName) {
         this.userName = userName;
     }
-
 
     public String getImage() {
         return image;
@@ -145,20 +129,19 @@ public class User {
         this.cv = cv;
     }
 
-    public List<Chat> getChats() {
-        return chats;
+    public Integer getExperience() {
+        return experience;
     }
 
-    public void setChats(List<Chat> chats) {
-        this.chats = chats;
+    public void setExperience(Integer experience) {
+        this.experience = experience;
     }
 
-
-    public int getIdNum() {
+    public Integer getIdNum() {
         return idNum;
     }
 
-    public void setIdNum(int idNum) {
+    public void setIdNum(Integer idNum) {
         this.idNum = idNum;
     }
 
@@ -170,31 +153,12 @@ public class User {
         this.status = status;
     }
 
-
-
     public String getLocation() {
         return location;
     }
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public String getEmail() {
@@ -221,6 +185,21 @@ public class User {
         this.confirm = confirm;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
 
     public List<Category> getLanguages() {
         return languages;
@@ -238,6 +217,13 @@ public class User {
         this.category = category;
     }
 
+    public List<Chat> getChats() {
+        return chats;
+    }
+
+    public void setChats(List<Chat> chats) {
+        this.chats = chats;
+    }
 
     public List<Skills> getSkills() {
         return skills;
