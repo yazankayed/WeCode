@@ -17,7 +17,7 @@
     <title>Login and Registration</title>
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/CSS/login.css">
 </head>
 <body>
 <div class="container">
@@ -106,6 +106,6 @@
         </div>
     </div>
 </div>
-<script src="js/app.js"></script>
+<script src="JS/login.js"></script>
 </body>
 </html>
