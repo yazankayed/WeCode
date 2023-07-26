@@ -15,69 +15,97 @@
 <head>
     <meta charset="UTF-8">
     <title>Login and Registration</title>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-   <div class="container">
-    <h1>Welcome!</h1>
-    <h3>Join our growing community</h3>
+<div class="container">
+    <div class="forms-container">
+        <div class="signin-signup">
+            <form class="sign-in-form">
+                <h2 class="title">Sign In</h2>
+                <div class="input-field">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-field">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Password">
+                </div>
+                <input type="submit" value="Login" class="btn solid">
+                <p class="social-text">Or sign in with social platforms</p>
+
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-google'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                </div>
+            </form>
+            <form class="sign-up-form">
+                <h2 class="title">Sign Up</h2>
+                <div class="input-field">
+                    <i class='bx bxs-user'></i>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-field">
+                    <i class='bx bxs-envelope'></i>
+                    <input type="text" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <i class='bx bxs-lock-alt'></i>
+                    <input type="password" placeholder="Password">
+                </div>
+                <input type="submit" value="Sign Up" class="btn solid">
+                <p class="social-text">Or sign up with social platforms</p>
+
+                <div class="social-media">
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-facebook'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-twitter'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-google'></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class='bx bxl-linkedin'></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panels-container">
+        <div class="panel left-panel">
+            <div class="content">
+                <h3>New here?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, illo. Vitae, nesciunt.
+                </p>
+                <button class="btn transparent" id="sign-up-btn">Sign up</button>
+            </div>
+            <img src="/images/Profiling_Monochromatic.png" class="image" alt="">
+        </div>
+        <div class="panel right-panel">
+            <div class="content">
+                <h3>One of us?</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, illo. Vitae, nesciunt.
+                </p>
+                <button class="btn transparent" id="sign-in-btn">Sign in</button>
+            </div>
+            <img src="/images/Authentication_Outline.png" class="image" alt="">
+        </div>
+    </div>
 </div>
-<main class="container">
-    <section>
-        <form:form action="/register" method="post" modelAttribute="newUser">
-            <h2>Registration</h2>
-            <div class="form-group row mb-3">
-                <form:label path="userName" class="col-sm-4 col-form-label">User Name:</form:label>
-                <form:errors path="userName" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input path="userName" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <form:label path="email" class="col-sm-4 col-form-label">Email:</form:label>
-                <form:errors path="email" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input typr="email" path="email" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <form:label path="password" class="col-sm-4 col-form-label">Password:</form:label>
-                <form:errors path="password" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <form:label path="confirm" class="col-sm-4 col-form-label">Confirm PW:</form:label>
-                <form:errors path="confirm" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input type="password" path="confirm" class="form-control"/>
-                </div>
-            </div>
-            <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
-        </form:form>
-    </section>
-    <section>
-        <form:form action="/login" method="post" modelAttribute="newLogin">
-            <h2>Login</h2>
-            <div class="form-group row mb-3">
-                <form:label path="email" class="col-sm-4 col-form-label">Email:</form:label>
-                <form:errors path="email" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input typr="email" path="email" class="form-control"/>
-                </div>
-            </div>
-            <div class="form-group row mb-3">
-                <form:label path="password" class="col-sm-4 col-form-label">Password:</form:label>
-                <form:errors path="password" style="color:red;"/>
-                <div class="col-sm-8">
-                    <form:input type="password" path="password" class="form-control"/>
-                </div>
-            </div>
-            <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
-        </form:form>
-    </section>
-</main>
+<script src="js/app.js"></script>
 </body>
 </html>
