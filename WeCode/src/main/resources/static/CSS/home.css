@@ -1,0 +1,28 @@
+body {
+    background-size: cover;
+    background: url(../59272.jpg) no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+.logo_img {
+    width: 100%;
+    height: fit-content;
+}
+#logo_img{
+    width: 10%;
+    height: fit-content;
+}
+
+.search_bar{
+    margin-right: 40%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#pro_bro {
+    width: 100%;
+}
