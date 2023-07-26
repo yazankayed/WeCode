@@ -42,26 +42,7 @@
     <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
   </form:form>
 </section>
-<section>
-  <form:form action="/login" method="post" modelAttribute="newLogin">
-    <h2>Login</h2>
-    <div class="form-group row mb-3">
-      <form:label path="email" class="col-sm-4 col-form-label">Email:</form:label>
-      <form:errors path="email" style="color:red;"/>
-      <div class="col-sm-8">
-        <form:input typr="email" path="email" class="form-control"/>
-      </div>
-    </div>
-    <div class="form-group row mb-3">
-      <form:label path="password" class="col-sm-4 col-form-label">Password:</form:label>
-      <form:errors path="password" style="color:red;"/>
-      <div class="col-sm-8">
-        <form:input type="password" path="password" class="form-control"/>
-      </div>
-    </div>
-    <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
-  </form:form>
-</section>
+
 
 
 </body>

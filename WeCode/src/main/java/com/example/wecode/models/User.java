@@ -37,7 +37,7 @@ public class User {
     @Min(100000000)
     private int idNum = 100000001;
 
-    @NotNull
+
      private boolean status =false;
 
 
