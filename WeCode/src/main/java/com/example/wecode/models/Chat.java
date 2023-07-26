@@ -13,8 +13,34 @@ import jakarta.validation.constraints.Size;
 
         @NotEmpty(message="Message is required!")
         @Size(min=0, max=999999999, message="Message must be at least 1 Character")
-        private String Message;
+        private String message;
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name="user_id")
         private User user;
-}
+
+        public Chat() {}
+
+        public Long getId() {
+            return id;
+        }
+
+        public void setId(Long id) {
+            this.id = id;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+        public User getUser() {
+            return user;
+        }
+
+        public void setUser(User user) {
+            this.user = user;
+        }
+    }

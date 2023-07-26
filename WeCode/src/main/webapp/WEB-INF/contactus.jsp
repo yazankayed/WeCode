@@ -5,9 +5,26 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
-    <title></title>
+    <title>Contact Us</title>
 </head>
 <body>
-
+<form:form action="/contactus" method="post" modelAttribute="feedback">
+    <p class="error" style="color: red;"><form:errors path="firstName"/></p>
+    <p class="error" style="color: red;"><form:errors path="lastName"/></p>
+    <p class="error" style="color: red;"><form:errors path="feedbackmsg"/></p>
+    <p>
+        <form:label path="firstName">First Name</form:label>
+        <form:input path="firstName"/>
+    </p>
+    <p>
+        <form:label path="lastName">Last Name</form:label>
+        <form:input path="lastName"/>
+    </p>
+    <p>
+        <form:label path="feedbackmsg">My Thoughts</form:label>
+        <form:input path="feedbackmsg"/>
+    </p>
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form:form>
 </body>
 </html>

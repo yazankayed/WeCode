@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.awt.print.Book;
-
 @Controller
 public class HomeController {
     private final UserService userServ;
@@ -24,13 +22,16 @@ public class HomeController {
     private final LanguagesService languagesService;
     private final SkillsService skillsService;
 
-    public HomeController(UserService userServ, CompanyService companyService, CategoryService categoryService, FeedBackService feedBackService, LanguagesService languagesService, SkillsService skillsService) {
+    private final ChatService chatService;
+
+    public HomeController(UserService userServ, CompanyService companyService, CategoryService categoryService, FeedBackService feedBackService, LanguagesService languagesService, SkillsService skillsService, ChatService chatService) {
         this.userServ = userServ;
         this.companyService = companyService;
         this.categoryService = categoryService;
         this.feedBackService = feedBackService;
         this.languagesService = languagesService;
         this.skillsService = skillsService;
+        this.chatService = chatService;
     }
     @GetMapping("/loginpageuser")
     public String index(Model model, HttpSession session) {
@@ -73,6 +74,15 @@ public class HomeController {
         session.setAttribute("user_id", logUser.getId());
         return "redirect:/success";
     }
+
+
+
+//    updating info
+
+
+
+
+
     @GetMapping("/success")
     public String success(Model model, HttpSession session) {
         if (session.getAttribute("user_id")!=null) {
@@ -120,10 +130,28 @@ public class HomeController {
     }
     @GetMapping("/contactus")
     public String conactus(Model model, HttpSession session) {
+        model.addAttribute("allFeedback", feedBackService.allFeedBacks());
 
 
         return "contactus.jsp";
     }
+
+
+
+
+//    contact us form
+
+    @PostMapping("/contactus")
+    public String createContact(@Valid @ModelAttribute("feedback") FeedBack feedback, BindingResult result) {
+        if (result.hasErrors()) {
+            return "contactus.jsp";
+        }
+        feedBackService.createFeedBack(feedback);
+        return "redirect:/contactus";
+    }
+
+
+
 
 
 
@@ -137,15 +165,31 @@ public class HomeController {
 
 
     @GetMapping("/chat")
-    public String chat(Model model, HttpSession session) {
+    public String chat(Model model, HttpSession session, @ModelAttribute("chat") Chat chat) {
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
+            model.addAttribute("allMsges", chatService.allChats());
+
             return "chat.jsp";
         }
         return "redirect:/";
     }
+
+//    chatform
+
+
+    @PostMapping("/chat/new")
+    public String createChat(@Valid @ModelAttribute("chat") Chat chat, BindingResult result) {
+        if (result.hasErrors()) {
+            return "chat.jsp";
+        }
+        chatService.createChat(chat);
+        return "redirect:/chat";
+    }
+
+
 
     @GetMapping("/category/{id}")
     public String categoryDev(@PathVariable("id") Long id, Model model, HttpSession session){

@@ -5,9 +5,20 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Chat</title>
 </head>
 <body>
 
+<form:form action="/chat/new" method="post" modelAttribute="chat">
+    <form:input type="hidden" path="user" value="${user.id}"/>
+    <p class="error" style="color: red;"><form:errors path="message"/></p>
+
+    <p>
+        <form:label path="message">Message</form:label>
+        <form:input path="message"/>
+    </p>
+
+    <input type="submit" value="Submit" class="btn btn-primary"/>
+</form:form>
 </body>
 </html>
