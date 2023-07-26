@@ -20,10 +20,10 @@ public class User {
     @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
     private String userName;
 
-    @NotBlank(message="Image is required!")
+    @Size(min=3, max=30, message="Image must be between 3 and 30 characters")
     private String image = null;
 
-    @NotBlank(message="CV is required!")
+    @Size(min=3, max=30, message="CV must be between 3 and 30 characters")
     private String cv= null;
 
 
@@ -37,7 +37,7 @@ public class User {
     @Min(100000000)
     private int idNum = 100000001;
 
-
+    @NotNull
      private boolean status =false;
 
 
@@ -70,6 +70,7 @@ public class User {
     private Date createdAt;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date updatedAt;
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
@@ -114,6 +115,9 @@ public class User {
     public void setExperience(int experience) {
         this.experience = experience;
     }
+
+
+
 
 
     public String getUserName() {

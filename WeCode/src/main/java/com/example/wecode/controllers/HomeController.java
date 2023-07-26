@@ -167,7 +167,7 @@ public class HomeController {
         return "aboutUs.jsp";
     }
     @GetMapping("/contactus")
-    public String conactus(Model model, HttpSession session) {
+    public String conactus(@ModelAttribute("feedback") FeedBack feedback,Model model, HttpSession session) {
         model.addAttribute("allFeedback", feedBackService.allFeedBacks());
 
 
