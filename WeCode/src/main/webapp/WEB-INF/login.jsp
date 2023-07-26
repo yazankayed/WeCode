@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Reg
-  Date: 7/21/2023
-  Time: 4:43 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page isErrorPage="true" %>
-<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="UTF-8">
@@ -23,15 +17,18 @@
 <div class="container">
     <div class="forms-container">
         <div class="signin-signup">
-            <form class="sign-in-form">
+            <form:form action="/login" class="sign-in-form" method="post" modelAttribute="newLogin">
                 <h2 class="title">Sign In</h2>
+                <form:errors path="email"/>
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
-                    <input type="text" placeholder="Username">
+                    <form:input path="email" type="email" placeholder="Email"/>
+
                 </div>
+                <form:errors path="password"/>
                 <div class="input-field">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Password">
+                    <form:input path="password" type="password" placeholder="Password"/>
                 </div>
                 <input type="submit" value="Login" class="btn solid">
                 <p class="social-text">Or sign in with social platforms</p>
@@ -50,21 +47,33 @@
                         <i class='bx bxl-linkedin'></i>
                     </a>
                 </div>
-            </form>
-            <form class="sign-up-form">
+            </form:form>
+                <form:form action="/register" class="sign-up-form" method="post" modelAttribute="newUser">
                 <h2 class="title">Sign Up</h2>
+                    <form:errors path="userName"/>
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
-                    <input type="text" placeholder="Username">
-                </div>
+                    <form:input path="userName" type="text" placeholder="Username"/>
+
+                    </div>
+                    <form:errors path="email"/>
                 <div class="input-field">
                     <i class='bx bxs-envelope'></i>
-                    <input type="text" placeholder="Email">
+                    <form:input path="email" type="text" placeholder="Email"/>
+
                 </div>
+                    <form:errors path="password"/>
                 <div class="input-field">
                     <i class='bx bxs-lock-alt'></i>
-                    <input type="password" placeholder="Password">
-                </div>
+                    <form:input path="password" type="password" placeholder="Password"/>
+
+                    </div>
+                    <form:errors path="confirm"/>
+                    <div class="input-field">
+                    <i class='bx bxs-lock-alt'></i>
+                    <form:input path="confirm" type="password" placeholder="Confirm Password"/>
+
+                    </div>
                 <input type="submit" value="Sign Up" class="btn solid">
                 <p class="social-text">Or sign up with social platforms</p>
 
@@ -82,7 +91,7 @@
                         <i class='bx bxl-linkedin'></i>
                     </a>
                 </div>
-            </form>
+            </form:form>
         </div>
     </div>
     <div class="panels-container">
