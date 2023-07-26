@@ -75,11 +75,77 @@ public class HomeController {
         }
         return "redirect:/";
     }
+
+    @GetMapping("/categories")
+    public String showCategories(Model model, HttpSession session) {
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+            model.addAttribute("allCategories", categoryService.allCategories());
+
+            return "showCategories.jsp";
+        }
+        return "redirect:/";
+    }
+
+
+    @GetMapping("/companies")
+    public String showCompanies(Model model, HttpSession session) {
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+            model.addAttribute("allCompanies", companyService.allCompanies());
+
+            return "showCompanies.jsp";
+        }
+        return "redirect:/";
+    }
+
+
+
+
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "redirect:/";
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

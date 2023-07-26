@@ -75,6 +75,8 @@ public class User {
     @JoinColumn(name="category_id")
     private Category category;
 
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Chat> chats;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
