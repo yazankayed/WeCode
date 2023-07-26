@@ -1,9 +1,6 @@
 package com.example.wecode.controllers;
 
-import com.example.wecode.models.Company;
-import com.example.wecode.models.LoginCompany;
-import com.example.wecode.models.LoginUser;
-import com.example.wecode.models.User;
+import com.example.wecode.models.*;
 import com.example.wecode.services.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -12,7 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.awt.print.Book;
 
 @Controller
 public class HomeController {
@@ -32,7 +32,7 @@ public class HomeController {
         this.languagesService = languagesService;
         this.skillsService = skillsService;
     }
-    @GetMapping("/")
+    @GetMapping("/loginpageuser")
     public String index(Model model, HttpSession session) {
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
@@ -40,6 +40,14 @@ public class HomeController {
         model.addAttribute("newUser", new User());
         model.addAttribute("newLogin", new LoginUser());
         return "login.jsp";
+    }
+    @GetMapping("/")
+    public String showHomepage(Model model, HttpSession session) {
+        if (session.getAttribute("user_id")!=null) {
+            return "redirect:/success";
+        }
+
+        return "home.jsp";
     }
 
     @PostMapping("/register")
@@ -104,6 +112,18 @@ public class HomeController {
     }
 
 
+    @GetMapping("/aboutus")
+    public String aboutus(Model model, HttpSession session) {
+
+
+        return "aboutUs.jsp";
+    }
+    @GetMapping("/contactus")
+    public String conactus(Model model, HttpSession session) {
+
+
+        return "contactus.jsp";
+    }
 
 
 
@@ -116,7 +136,46 @@ public class HomeController {
 
 
 
+    @GetMapping("/chat")
+    public String chat(Model model, HttpSession session) {
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+            return "chat.jsp";
+        }
+        return "redirect:/";
+    }
 
+    @GetMapping("/category/{id}")
+    public String categoryDev(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+            Category category = categoryService.findCategory(id);
+            model.addAttribute("category", category);
+
+            return "catdev.jsp";
+        }
+        return "redirect:/";
+    }
+
+    @GetMapping("/dev/{id}")
+    public String Devinfo(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+            User developer = userServ.findUserById(id);
+            model.addAttribute("developer", developer);
+
+            return "devinfo.jsp";
+        }
+        return "redirect:/";
+    }
 
 
 
