@@ -8,6 +8,7 @@
 
 body,input{
     font-family: 'Roboto', sans-serif;
+    background-color: #1abc9c;
 }
 
 .container{
@@ -15,7 +16,7 @@ body,input{
     width: 100%;
     min-height: 100vh;
     background-color: #ffffff;
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .container:before{
@@ -24,9 +25,9 @@ body,input{
     width: 2000px;
     height: 2000px;
     border-radius: 50%;
-    background: linear-gradient(-45deg, #339f0f, #339f0f);
+    background: linear-gradient(-45deg, #1abc9c, #1abc9c);
     top: -10%;
-    right: 48%;
+    right: 55%;
     transform: translateY(-50%);
     z-index: 6;
     transition: 1.8s ease-in-out;
