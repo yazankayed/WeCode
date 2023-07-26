@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="categoruies")
+@Table(name="feedback")
 public class FeedBack {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
