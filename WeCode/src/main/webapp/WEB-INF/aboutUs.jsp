@@ -7,16 +7,15 @@
 <head>
     <title>aboutUs</title>
     <link rel="stylesheet" href="/CSS/aboutUs.css">
-    <link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"
-            crossorigin="anonymous"
-    ></script>
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+            src="hhttps://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"> </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            crossorigin="anonymous"
+    ></script>
+
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
@@ -119,7 +118,7 @@
             <!-- Team item-->
             <div class="col-xl-3 col-sm-6 mb-5">
                 <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                    <h5 class="mb-0"><Yousef></Yousef> </h5><span class="small text-uppercase text-muted">CEO - Founder</span>
+                    <h5 class="mb-0"> Yousef</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
                     <ul class="social mb-0 list-inline mt-3">
                         <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
                         <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
@@ -134,7 +133,13 @@
     </div>
 </div>
 
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"
 
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        crossorigin="anonymous"
+></script>
 
 </body>
 </html>
