@@ -369,15 +369,15 @@ public class HomeController {
 
 
     @GetMapping("/SkillCharTesting")
-    public  String ss(HttpSession session,Model model){
-        int[] arr = new int[]{65, 59, 90, 81, 56, 55, 40,90};
-        int[] arr2 = new int[]{28, 48, 40, 19, 16, 27, 40,1};
+    public  String comparingReqWithSkills(HttpSession session,Model model){
+        int[] companyReq = new int[]{65, 59, 70, 95, 85, 55, 48,90,98};
+        int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
 
-        JSONArray jsonArray = new JSONArray(arr);
-        JSONArray jsonArray2 = new JSONArray(arr2);
+        JSONArray jsonArray = new JSONArray(companyReq);
+        JSONArray jsonArray2 = new JSONArray(employeeSkills);
 
-        model.addAttribute("lotfi",jsonArray);
-        model.addAttribute("Yazan",jsonArray2);
+        model.addAttribute("company",jsonArray);
+        model.addAttribute("employee",jsonArray2);
 
         return "SkillCharTesting.jsp";
     }
