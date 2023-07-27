@@ -44,7 +44,7 @@ public class HomeController {
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
         }
-        return "home.jsp";
+        return "success.jsp";
     }
 
     @PostMapping("/register")
@@ -152,6 +152,7 @@ public class HomeController {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
+            model.addAttribute("userId" , userId);
             return "success.jsp";
         }
         return "redirect:/";
@@ -212,11 +213,6 @@ public class HomeController {
         feedBackService.createFeedBack(feedback);
         return "redirect:/contactus";
     }
-
-
-
-
-
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {
