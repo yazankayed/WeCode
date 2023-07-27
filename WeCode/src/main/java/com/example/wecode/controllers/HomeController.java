@@ -44,7 +44,6 @@ public class HomeController {
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
         }
-
         return "home.jsp";
     }
 
@@ -73,6 +72,25 @@ public class HomeController {
     }
 
 
+    //updating user info
+    @GetMapping("/userUpdateForm")
+    public String updateUserForm(@ModelAttribute("user") User user, Model model, HttpSession session) {
+        if (session.getAttribute("user_id") != null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+
+            return "userFormTest.jsp";
+        }
+        return "redirect:/";
+    }
+
+    @PutMapping("/updateUser")
+    public String updateUser(@ModelAttribute("user") User user){
+            userServ.updateUser(user);
+            return "redirect:/updateUserForm";
+        }
 
 //    updating info
     @GetMapping("/update")
@@ -86,7 +104,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PostMapping("/updateuser")
+    @PatchMapping("/updateuser")
     public String update(  HttpSession session ,
                          @RequestParam("userName") String userName,
                          @RequestParam("email") String email,
@@ -94,15 +112,10 @@ public class HomeController {
                          @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
-                         @RequestParam("image") String image,
-                         @RequestParam("status") String status )
+                         @RequestParam("image") String image)
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
-//        model.addAttribute("currentUser", currentUser);
-//        if (result.hasErrors()) {
-//            return "updateuserprofile.jsp";
-//        }
 
         currentUser.setUserName(userName);
         currentUser.setEmail(email);
@@ -111,9 +124,11 @@ public class HomeController {
         currentUser.setLocation(location);
         currentUser.setCv(cv);
         currentUser.setImage(image);
-        currentUser.setStatus(Boolean.parseBoolean(status));
-        userServ.updateUser(currentUser);
 
+//        currentUser.setStatus(Boolean.parseBoolean(status));
+        System.out.println("7777777777777777777777777777");
+        userServ.updateUser(currentUser);
+        System.out.println("8888888888888888888888888888");
         return "redirect:/success";
     }
 
@@ -374,7 +389,7 @@ public class HomeController {
 
     @GetMapping("/SkillCharTesting")
     public  String comparingReqWithSkills(HttpSession session,Model model){
-        int[] companyReq = new int[]{65, 59, 70, 95, 85, 55, 48,90,98};
+        int[] companyReq = new int[]{35, 39, 70, 65, 85, 55, 78,90,56};
         int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
 
         JSONArray jsonArray = new JSONArray(companyReq);

@@ -10,6 +10,8 @@
 <body>
 <section>
     <form action="/updateuser" method="post" >
+        <input type="hidden" name="_method" value="PATCH">
+
         <h2>Updating</h2>
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">User Name:</label>
@@ -25,7 +27,7 @@
         </div>
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">ID Number:</label>
-            <form:errors path="idNum" style="color:red;"/>
+<%--            <form:errors path="idNum" style="color:red;"/>--%>
             <div class="col-sm-8">
                 <input type="Number" name="idNum" class="form-control"/>
             </div>
