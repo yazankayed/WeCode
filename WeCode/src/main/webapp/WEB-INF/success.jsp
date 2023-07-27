@@ -17,51 +17,53 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo_f.png"> </a>
+    <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a style="color: #009db0" class="nav-link active  link-info" aria-current="page" href="#">Home</a>
+          <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a style="color: #009db0" class="nav-link active  link-info" aria-current="page" href="#">Developers</a>
+          <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
         </li>
         <li class="nav-item">
-          <a style="color: #009db0" class="nav-link active  link-info" aria-current="page" href="#">Companies</a>
+          <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
         </li>
         <li class="nav-item">
-          <a style="color: #009db0" class="nav-link active  link-info" aria-current="page" href="#">Contact Us</a>
+          <a  id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
         </li>
         <li class="nav-item">
-          <a  class="nav-link active link-info" aria-current="page" href="#">About Us</a>
+          <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
         </li>
-
+        <li class="nav-item">
+          <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
+        </li>
       </ul>
       <div class="search_bar">
         <form  class="d-flex justify-content-center" role="search">
           <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
-          <button  class="btn btn-outline-info" type="submit">Search</button>
+          <button style="background-color:#1abc9c"  class="btn btn" type="submit">Search</button>
         </form>
       </div>
 
-      <c:if test="${userId=! null}">
-        <a class="btn btn-outline-info" aria-current="page" href="/loginpageuser"> Log in </a>
+      <c:if test="${x == 0}">
+        <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
       </c:if>
-      <c:if test="${userId == null}">
-        <a class="btn btn-outline-info" aria-current="page" href="/logout"> Log out </a>
+      <c:if test="${x == 1}">
+        <a style="background-color:#1abc9c"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
       </c:if>
 
       </div>
     </div>
 </nav>
 <div class="container">
-  <div>
-    <h1>Developers</h1>
+  <div class="slogan">
+    <h1 class="slogan_text">Make The World A Better Place With a Developer.</h1>
   </div>
-  <div >
+  <div class="pro_bro">
     <img  id="pro_bro" src="Images/Programming-bro.png" alt="pro-bro">
   </div>
 </div>

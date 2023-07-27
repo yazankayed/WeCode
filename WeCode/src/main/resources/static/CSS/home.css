@@ -1,21 +1,22 @@
-body {
-    background-size: cover;
-    background: url(../59272.jpg) no-repeat;
-    height: 100vh;
-    width: 100%;
-}
+/*body {*/
+/*    background-size: cover;*/
+/*    background: url(../43535.jpg) no-repeat;*/
+/*    height: 100vh;*/
+/*    width: 100%;*/
+/*}*/
 
 .logo_img {
-    width: 100%;
+    width: 110%;
     height: fit-content;
 }
 #logo_img{
     width: 10%;
     height: fit-content;
+    margin-right: 2.5%;
 }
 
 .search_bar{
-    margin-right: 40%;
+    margin-right: 13%;
 }
 
 .container {
@@ -24,5 +25,24 @@ body {
     align-items: center;
 }
 #pro_bro {
-    width: 100%;
+    width: 110%;
+    margin-top: 20px;
+}
+
+.pro_bro {
+    flex: 1;
+}
+.slogan {
+    flex: 1;
+}
+
+#nav_links{
+    font-size: large;
+    font-weight: 500;
+    color: #1abc9c;
+    margin-left: 7px;
+}
+
+.slogan_text {
+    color: #1abc9c;
 }

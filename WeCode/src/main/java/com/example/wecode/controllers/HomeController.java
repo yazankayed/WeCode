@@ -41,9 +41,15 @@ public class HomeController {
     }
     @GetMapping("/")
     public String showHomepage(Model model, HttpSession session) {
+        int x = 0;
+
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
         }
+
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
         return "success.jsp";
     }
 
@@ -112,6 +118,7 @@ public class HomeController {
                          @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
+
                          @RequestParam("image") String image)
     {
         Long userId = (Long) session.getAttribute("user_id");
@@ -148,11 +155,16 @@ public class HomeController {
 
     @GetMapping("/success")
     public String success(Model model, HttpSession session) {
+        int x = 0;
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("userId" , userId);
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
+
             return "success.jsp";
         }
         return "redirect:/";
@@ -309,6 +321,7 @@ public class HomeController {
 
 
 
+
     @GetMapping("/regFormCompany")
     public String regFormCompany(Model model, HttpSession session) {
         if (session.getAttribute("company_id")!=null) {
@@ -379,6 +392,7 @@ public class HomeController {
 
 
     @GetMapping("/SkillCharTesting")
+
     public  String comparingReqWithSkills(HttpSession session,Model model){
         int[] companyReq = new int[]{35, 39, 70, 65, 85, 55, 78,90,56};
         int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
