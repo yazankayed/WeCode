@@ -21,10 +21,10 @@ public class User {
     @Size(min=3, max=300, message="Username must be between 3 and 30 characters")
     private String userName;
 
-    @Size(min=3, max=30, message="Image must be between 3 and 30 characters")
+    @Size(min=3, max=999999999, message="Image must be between 3 and 30 characters")
     private String image = null;
 
-    @Size(min=3, max=30, message="CV must be between 3 and 30 characters")
+    @Size(min=3, max=999999999, message="CV must be between 3 and 30 characters")
     private String cv= null;
 
 
@@ -36,7 +36,7 @@ public class User {
     @Min(100000000)
     private Integer idNum = 100000001;
 
-     private boolean status =true;
+    private boolean status =true;
 
 
 
@@ -85,13 +85,8 @@ public class User {
     @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
     private List<Chat> chats;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "users_skills",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "skills_id")
-    )
-    private List<Skills> skills;
+    @OneToOne(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private Skills skills;
 
 
 
@@ -226,11 +221,11 @@ public class User {
         this.chats = chats;
     }
 
-    public List<Skills> getSkills() {
+    public Skills getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skills> skills) {
+    public void setSkills(Skills skills) {
         this.skills = skills;
     }
 
@@ -241,5 +236,5 @@ public class User {
     @PreUpdate
     protected void onUpdate(){
         this.updatedAt = new Date();
-    }
+}
 }

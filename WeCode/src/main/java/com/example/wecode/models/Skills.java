@@ -13,73 +13,57 @@ public class Skills {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(0)
-    @Max(5)
-    private int webFundamentals;
+
 
     @Min(0)
-    @Max(5)
-    private int javaStack;
-    @Min(0)
-    @Max(5)
-    private int pythonStack;
+    @Max(100)
+    private int leaderShip;
 
     @Min(0)
-    @Max(5)
-    private int mernStack;
-
-    @Min(0)
-    @Max(5)
+    @Max(100)
     private int timeManagement;
 
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int teamWork;
 
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int commitment;
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int problemSolving;
 
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int workingUnderPressure;
 
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int researchSkills;
 
 
     @Min(0)
-    @Max(5)
+    @Max(100)
     private int communicationSkills;
 
 
     @Min(0)
-    @Max(5)
-    private int presentationSkills;
+    @Max(100)
+    private int selfSufficient;
 
 
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="user_id")
+    private User user;
 
-
-
-
-
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-            name = "users_skills",
-            joinColumns = @JoinColumn(name = "skills_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<Skills> users;
-
+    public Skills() {
+    }
 
     public Long getId() {
         return id;
@@ -89,37 +73,7 @@ public class Skills {
         this.id = id;
     }
 
-    public int getWebFundamentals() {
-        return webFundamentals;
-    }
 
-    public void setWebFundamentals(int webFundamentals) {
-        this.webFundamentals = webFundamentals;
-    }
-
-    public int getJavaStack() {
-        return javaStack;
-    }
-
-    public void setJavaStack(int javaStack) {
-        this.javaStack = javaStack;
-    }
-
-    public int getPythonStack() {
-        return pythonStack;
-    }
-
-    public void setPythonStack(int pythonStack) {
-        this.pythonStack = pythonStack;
-    }
-
-    public int getMernStack() {
-        return mernStack;
-    }
-
-    public void setMernStack(int mernStack) {
-        this.mernStack = mernStack;
-    }
 
     public int getTimeManagement() {
         return timeManagement;
@@ -177,29 +131,28 @@ public class Skills {
         this.communicationSkills = communicationSkills;
     }
 
-    public int getPresentationSkills() {
-        return presentationSkills;
+    public int getLeaderShip() {
+        return leaderShip;
     }
 
-    public void setPresentationSkills(int presentationSkills) {
-        this.presentationSkills = presentationSkills;
+    public void setLeaderShip(int leaderShip) {
+        this.leaderShip = leaderShip;
     }
 
-    public List<Skills> getUsers() {
-        return users;
+    public int getSelfSufficient() {
+        return selfSufficient;
     }
 
-    public void setUsers(List<Skills> users) {
-        this.users = users;
+    public void setSelfSufficient(int selfSufficient) {
+        this.selfSufficient = selfSufficient;
     }
 
 
+    public User getUser() {
+        return user;
+    }
 
-
-
-
-
-
-
-
+    public void setUser(User user) {
+        this.user=user;
+    }
 }
