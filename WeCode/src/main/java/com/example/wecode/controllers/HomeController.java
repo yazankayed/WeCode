@@ -41,9 +41,14 @@ public class HomeController {
     }
     @GetMapping("/")
     public String showHomepage(Model model, HttpSession session) {
+        int x = 0;
+
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
         }
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
 
         return "success.jsp";
     }
@@ -94,8 +99,7 @@ public class HomeController {
                          @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
-                         @RequestParam("image") String image,
-                         @RequestParam("status") String status )
+                         @RequestParam("image") String image )
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
@@ -111,7 +115,7 @@ public class HomeController {
         currentUser.setLocation(location);
         currentUser.setCv(cv);
         currentUser.setImage(image);
-        currentUser.setStatus(Boolean.parseBoolean(status));
+//        currentUser.setStatus(Boolean.parseBoolean(status));
         userServ.updateUser(currentUser);
 
         return "redirect:/success";
@@ -133,11 +137,16 @@ public class HomeController {
 
     @GetMapping("/success")
     public String success(Model model, HttpSession session) {
+        int x = 0;
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("userId" , userId);
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
+
             return "success.jsp";
         }
         return "redirect:/";
@@ -296,9 +305,6 @@ public class HomeController {
 
 
 
-
-
-
     @GetMapping("/regFormCompany")
     public String regFormCompany(Model model, HttpSession session) {
         if (session.getAttribute("company_id")!=null) {
@@ -370,8 +376,8 @@ public class HomeController {
 
     @GetMapping("/SkillCharTesting")
     public  String ss(HttpSession session,Model model){
-        int[] arr = new int[]{65, 59, 90, 81, 56, 55, 40,90};
-        int[] arr2 = new int[]{28, 48, 40, 19, 16, 27, 40,1};
+        int[] arr = new int[]{77, 24, 60, 81, 56, 55, 40,90};
+        int[] arr2 = new int[]{88, 48, 40, 19, 16, 27, 40,1};
 
         JSONArray jsonArray = new JSONArray(arr);
         JSONArray jsonArray2 = new JSONArray(arr2);
