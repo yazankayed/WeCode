@@ -309,11 +309,6 @@ public class HomeController {
 
 
 
-
-
-
-
-
     @GetMapping("/regFormCompany")
     public String regFormCompany(Model model, HttpSession session) {
         if (session.getAttribute("company_id")!=null) {
@@ -395,6 +390,11 @@ public class HomeController {
         model.addAttribute("employee",jsonArray2);
 
         return "SkillCharTesting.jsp";
+    }
+
+    @GetMapping("/footer")
+    public String footer(){
+        return "footer.jsp";
     }
 
 
