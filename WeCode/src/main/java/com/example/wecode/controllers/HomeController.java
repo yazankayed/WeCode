@@ -133,9 +133,8 @@ public class HomeController {
         currentUser.setImage(image);
 
 //        currentUser.setStatus(Boolean.parseBoolean(status));
-        System.out.println("7777777777777777777777777777");
         userServ.updateUser(currentUser);
-        System.out.println("8888888888888888888888888888");
+
         return "redirect:/success";
     }
 
