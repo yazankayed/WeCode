@@ -12,13 +12,13 @@
 
 <script>
   // Get the JSON array from the model attribute and parse it to a JavaScript array
-  const arr = JSON.parse('<c:out value="${lotfi}" />');
-  const arr2= JSON.parse('<c:out value="${Yazan}" />');
+  const arr = JSON.parse('<c:out value="${company}" />');
+  const arr2= JSON.parse('<c:out value="${employee}" />');
 
   const data = {
-    labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running',"Playing"],
+    labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running',"Playing","looool"],
     datasets: [{
-      label: 'My First Dataset',
+      label: 'Company Requirements',
       data: arr,
       fill: true,
       backgroundColor: 'rgba(255, 99, 132, 0.2)',
@@ -28,7 +28,7 @@
       pointHoverBackgroundColor: '#fff',
       pointHoverBorderColor: 'rgb(255, 99, 132)'
     },{
-      label: 'My Second Dataset',
+      label: 'Employee Skills',
       data: arr2,
       fill: true,
       backgroundColor: 'rgba(54, 162, 235, 0.2)',

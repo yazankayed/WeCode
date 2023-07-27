@@ -46,10 +46,10 @@ public class HomeController {
         if (session.getAttribute("user_id")!=null) {
             return "redirect:/success";
         }
+
         if (session.getAttribute("user_id")!=null){x=1;}
         if (session.getAttribute("user_id")==null){x=0;}
         model.addAttribute("x" , x);
-
         return "success.jsp";
     }
 
@@ -78,6 +78,25 @@ public class HomeController {
     }
 
 
+    //updating user info
+    @GetMapping("/userUpdateForm")
+    public String updateUserForm(@ModelAttribute("user") User user, Model model, HttpSession session) {
+        if (session.getAttribute("user_id") != null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+
+            return "userFormTest.jsp";
+        }
+        return "redirect:/";
+    }
+
+    @PutMapping("/updateUser")
+    public String updateUser(@ModelAttribute("user") User user){
+            userServ.updateUser(user);
+            return "redirect:/updateUserForm";
+        }
 
 //    updating info
     @GetMapping("/update")
@@ -91,7 +110,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @PostMapping("/updateuser")
+    @PatchMapping("/updateuser")
     public String update(  HttpSession session ,
                          @RequestParam("userName") String userName,
                          @RequestParam("email") String email,
@@ -99,14 +118,11 @@ public class HomeController {
                          @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
-                         @RequestParam("image") String image )
+
+                         @RequestParam("image") String image)
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
-//        model.addAttribute("currentUser", currentUser);
-//        if (result.hasErrors()) {
-//            return "updateuserprofile.jsp";
-//        }
 
         currentUser.setUserName(userName);
         currentUser.setEmail(email);
@@ -115,9 +131,11 @@ public class HomeController {
         currentUser.setLocation(location);
         currentUser.setCv(cv);
         currentUser.setImage(image);
-//        currentUser.setStatus(Boolean.parseBoolean(status));
-        userServ.updateUser(currentUser);
 
+//        currentUser.setStatus(Boolean.parseBoolean(status));
+        System.out.println("7777777777777777777777777777");
+        userServ.updateUser(currentUser);
+        System.out.println("8888888888888888888888888888");
         return "redirect:/success";
     }
 
@@ -304,7 +322,6 @@ public class HomeController {
 
 
 
-
     @GetMapping("/regFormCompany")
     public String regFormCompany(Model model, HttpSession session) {
         if (session.getAttribute("company_id")!=null) {
@@ -375,17 +392,23 @@ public class HomeController {
 
 
     @GetMapping("/SkillCharTesting")
-    public  String ss(HttpSession session,Model model){
-        int[] arr = new int[]{77, 24, 60, 81, 56, 55, 40,90};
-        int[] arr2 = new int[]{88, 48, 40, 19, 16, 27, 40,1};
 
-        JSONArray jsonArray = new JSONArray(arr);
-        JSONArray jsonArray2 = new JSONArray(arr2);
+    public  String comparingReqWithSkills(HttpSession session,Model model){
+        int[] companyReq = new int[]{35, 39, 70, 65, 85, 55, 78,90,56};
+        int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
 
-        model.addAttribute("lotfi",jsonArray);
-        model.addAttribute("Yazan",jsonArray2);
+        JSONArray jsonArray = new JSONArray(companyReq);
+        JSONArray jsonArray2 = new JSONArray(employeeSkills);
+
+        model.addAttribute("company",jsonArray);
+        model.addAttribute("employee",jsonArray2);
 
         return "SkillCharTesting.jsp";
+    }
+
+    @GetMapping("/footer")
+    public String footer(){
+        return "footer.jsp";
     }
 
 
