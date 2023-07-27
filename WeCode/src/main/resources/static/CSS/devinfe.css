@@ -255,6 +255,69 @@ header .navbar ul li a:hover{
     color: #fff;
     background:var(--yallow);
 }
+.contact .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.contact .row .content{
+    flex:1 1 30rem;
+    padding: 4rem;
+    padding-bottom: 0;
+}
+.contact .row form{
+    flex:1 1 45rem;
+    padding: 2rem;
+    margin: 2rem;
+   margin-bottom: 4rem;
+}
+.contact .row form .box{
+     padding: 1.5rem;
+    margin: 1rem 0;
+    background: #3333;
+    color: #fff;
+    text-transform: none;
+    font-size: 1.7rem;
+    width: 100%;
+}
+
+.contact .row form .box::placeholder{
+    text-transform: capitalize;
+}
+.contact .row form .message{
+    height: 15rem;
+    resize: none;
+}
+.contact .row .content .title{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 3rem;
+    padding-bottom: 2rem;
+}
+.contact .row .content .info h3{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: #eee;
+    padding: 1rem 0;
+    font-weight: normal;
+
+}
+.contact .row .content .info h3 i{
+    padding-right: 1rem;
+    color: var(--yallow);
+}
+.top{
+    position: fixed;
+    bottom:7.5rem; right: 2rem;
+    z-index: 100;
+    display: none;
+
+}
+
+
 
 
 
@@ -282,7 +345,6 @@ header .navbar ul li a:hover{
    html{
        font-size:50%;
    }
-
 }
 
 @media (max-width:400px) {
@@ -297,6 +359,9 @@ header .navbar ul li a:hover{
     }
     .education .box-container .box{
         width: 100%;
+    }
+    .contact .row form{
+        margin: 3rem 0;
     }
 
 }

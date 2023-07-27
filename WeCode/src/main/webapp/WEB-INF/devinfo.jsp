@@ -22,7 +22,7 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#education">Educatio</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -154,20 +154,16 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
                 <input type="text" placeholder="email" class="box">
                 <input type="text" placeholder="project" class="box">
                 <textarea name="" id="" cols="30" rows="10" class="box massage" placeholder="message"></textarea>
-                <button type="submit"> <i class="fas fa-paper-plane"></i></button>
-
-
+                <button type="submit" class="btn"> Send<i class="fas fa-paper-plane"></i></button>
             </form>
-
-
         </div>
-
-
-
-
 </section>
-<%--profolio section ends--%>
+<%--Contact section ends--%>
 
+<%--scroll top button--%>
+<a href="#home" class="top">
+    <img src=""> alt="">
+</a>
 
 
 
@@ -179,8 +175,7 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 
 
 <%--jquery cdn link--%>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js" integrity="sha512-5Sh3svHJGYktD3JqHHNwhRORHtnvq7i4jj8M4RsDWflPOzNKfF4dw8n4mQ6w+e3P+COlb0yY9ztj73ritLrTSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="JS/devinfo.js"></script>
-
 </body>
 </html>
