@@ -65,6 +65,17 @@ section{
 .btn:hover{
     background:var(--yallow);
 }
+.heading{
+    text-align: center;
+    margin: 0 6rem;
+    font-size: 4rem;
+    padding: 1rem;
+    border-bottom:  .1rem solid #fff4;
+    color: #fff;
+}
+.heading span{
+    color: var(--yallow);
+}
 header{
     position: fixed;
     top: 0; left: 0;
@@ -78,7 +89,7 @@ header{
     flex-flow: column;
     text-align: center;
 }
-header.user img{
+header .user img{
     height:17rem;
     width: 17rem;
     border-radius: 50%;
@@ -86,7 +97,7 @@ header.user img{
     margin-bottom: 1rem;
     border:.7rem solid var(--yallow);
 }
-header.user .name{
+header .user .name{
     font-size: 3.5rem;
     color: #fff;
 }
@@ -151,40 +162,141 @@ header .navbar ul li a:hover{
     padding: 1rem 0;
 
 }
+.about .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: wrap;
+    padding: 1rem 0;
+
+}
+.about .row .info{
+    flex:1 1 48rem;
+    padding:2rem 1rem ;
+    padding-left: 6rem;
+}
+.about .row .info h3{
+    font-size: 2rem;
+    color: var(--yallow);
+    padding: 1rem 0;
+    font-weight: normal;
+
+}
+.about .row .info h3 span{
+    color: #eee;
+    padding:0 .5rem ;
+}
+
+.about .row .counter{
+    flex:1 1 48rem;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+
+}
+.about .row .counter .box{
+    width: 20rem;
+    background: #222;
+    text-align: center;
+    padding: 2rem;
+    margin: 2rem;
+}
+.about .row .counter .box span{
+    font-size: 4rem;
+    color: var(--yallow);
+}
+.about .row .counter .box h3{
+    font-size: 2rem;
+    color:#fff;
+}
+.education .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-flow: wrap;
+    padding: 1rem 0;
+    padding-left: 3rem;
+}
+.education .box-container .box{
+    width: 27rem;
+    margin: 4rem 1rem;
+    padding-left: 4rem;
+    border-left: .2rem solid #fff;
+    position: relative;
+
+}
+.education .box-container .box span{
+    font-size: 1.3rem;
+    background: #222;
+    color: #fff;
+    border-radius: 5rem;
+    padding: .5rem 2.5rem;
+
+}
+.education .box-container .box h3{
+    font-size: 2rem;
+    color: #fff;
+    padding-top: 1.5rem;
+}
+.education .box-container .box p{
+    font-size: 1.4rem;
+    color: #eee;
+    padding: 1rem 0;
+}
+.education .box-container .box i{
+    position: absolute;
+    top:-1.5rem; left: -2.5rem;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    background:var(--yallow);
+}
 
 
 
 
-
-@media (max-width: 1200px) {
+@media (max-width:1200px) {
     html{
-        font-size: 55%;
+        font-size:55%;
     }
     .home{
         padding:1rem 4rem;
     }
 }
-@media (max-width: 991px) {
+@media (max-width:991px) {
     header{
-        left: -120%;
+        left:-120%;
     }
     #menu{
-        display: block;
+        display:block;
     }
     header.toggle{
         left:0%;
     }
 }
-@media (max-width: 768px) {
+@media (max-width:768px) {
    html{
-       font-size: 50%;
+       font-size:50%;
    }
 
 }
 
-@media (max-width: 400px) {
+@media (max-width:400px) {
     header{
         width: 100vw;
+    }
+    .heading{
+        margin: 0 3rem;
+    }
+    .about .row .counter .box{
+        width: 100%;
+    }
+    .education .box-container .box{
+        width: 100%;
     }
 
 }

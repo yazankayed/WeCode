@@ -7,7 +7,7 @@ $('menu').click(function (){
 $(window).on('scroll load',function (){
 
     $('#menu').removeClass('fa-time');
-    $('header').removeClass('toggle');
+    $('header').removeClass ('toggle');
 
 });
 
