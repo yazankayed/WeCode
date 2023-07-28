@@ -1,5 +1,6 @@
 package com.example.wecode.models;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
@@ -14,7 +15,7 @@ public class Languages {
     private Long id;
 
 
-    @NotEmpty(message="Programing Languages is required!")
+    @Nullable
     private String programingLanguages;
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -23,7 +24,7 @@ public class Languages {
             joinColumns = @JoinColumn(name = "languages_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<Category> users;
+    private List<User> users;
 
 
     public Languages() {}
@@ -45,16 +46,11 @@ public class Languages {
         this.programingLanguages = programingLanguages;
     }
 
-    public List<Category> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Category> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
-
-
-
-
-
 }

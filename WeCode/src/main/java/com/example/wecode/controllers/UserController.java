@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @Controller
 public class UserController {
@@ -73,24 +75,7 @@ public class UserController {
 
 
     //updating user info
-    @GetMapping("/userUpdateForm")
-    public String updateUserForm(@ModelAttribute("user") User user, Model model, HttpSession session) {
-        if (session.getAttribute("user_id") != null) {
-            Long userId = (Long) session.getAttribute("user_id");
-            User currentUser = userServ.findUserById(userId);
-            model.addAttribute("currentUser", currentUser);
 
-
-            return "userFormTest.jsp";
-        }
-        return "redirect:/";
-    }
-
-    @PutMapping("/updateUser")
-    public String updateUser(@ModelAttribute("user") User user){
-        userServ.updateUser(user);
-        return "redirect:/updateUserForm";
-    }
 
     //    updating info
     @GetMapping("/update")
@@ -115,12 +100,85 @@ public class UserController {
                            @RequestParam("cv") String cv,
                            @RequestParam("status") String status,
                            @RequestParam("image") String image,
-                           @RequestParam("category") Long category)
+                           @RequestParam("category") Long category,
+                           @RequestParam("python") boolean python,
+                           @RequestParam("java") boolean java,
+                           @RequestParam("python") boolean javascript,
+                           @RequestParam("python") boolean php,
+                           @RequestParam("python") boolean net,
+                           @RequestParam("python") boolean Cp,
+                           @RequestParam("python") boolean C,
+                           @RequestParam("python") boolean Cs
+
+    )
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
         Category categoryy = categoryService.findCategory(category);
-
+        if (python == true)
+        {
+            Long c=1L;
+            Languages languagess = languagesService.findLanguages(c);
+            List<User> users = languagess.getUsers();
+            users.add(currentUser);
+            languagess.setUsers(users);
+        }
+        if (java == true)
+        {
+            Long c=2L;
+            Languages languagesss = languagesService.findLanguages(c);
+            List<User> users = languagesss.getUsers();
+            users.add(currentUser);
+            languagesss.setUsers(users);
+        }
+        if (javascript == true)
+        {
+            Long c=3L;
+            Languages languageess = languagesService.findLanguages(c);
+            List<User> users = languageess.getUsers();
+            users.add(currentUser);
+            languageess.setUsers(users);
+        }
+        if (php == true)
+        {
+            Long c=4L;
+            Languages f = languagesService.findLanguages(c);
+            List<User> users = f.getUsers();
+            users.add(currentUser);
+            f.setUsers(users);
+        }
+        if (net == true)
+        {
+            Long c=5L;
+            Languages e = languagesService.findLanguages(c);
+            List<User> users = e.getUsers();
+            users.add(currentUser);
+            e.setUsers(users);
+        }
+        if (Cp == true)
+        {
+            Long c=6L;
+            Languages m = languagesService.findLanguages(c);
+            List<User> users = m.getUsers();
+            users.add(currentUser);
+            m.setUsers(users);
+        }
+        if (C == true)
+        {
+            Long c=7L;
+            Languages o = languagesService.findLanguages(c);
+            List<User> users = o.getUsers();
+            users.add(currentUser);
+            o.setUsers(users);
+        }
+        if (Cs == true)
+        {
+            Long c=8L;
+            Languages q = languagesService.findLanguages(c);
+            List<User> users = q.getUsers();
+            users.add(currentUser);
+            q.setUsers(users);
+        }
         currentUser.setUserName(userName);
         currentUser.setEmail(email);
         currentUser.setIdNum(idNum);

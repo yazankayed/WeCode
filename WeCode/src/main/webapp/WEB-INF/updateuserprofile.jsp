@@ -11,7 +11,6 @@
 <section>
     <form action="/updateuser" method="post" >
         <input type="hidden" name="_method" value="PATCH">
-
         <h2>Updating</h2>
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">User Name:</label>
@@ -39,7 +38,6 @@
                 <input type="Number" name="experience" class="form-control"/>
             </div>
         </div>
-
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">Location:</label>
 <%--            <form:errors path="location" style="color:red;"/>--%>
@@ -54,7 +52,6 @@
                 <input type="text" name="cv"  class="form-control"/>
             </div>
         </div>
-
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">Image:</label>
 <%--            <form:errors path="image" style="color:red;"/>--%>
@@ -62,17 +59,17 @@
                 <input type="text" name="image"  class="form-control"/>
             </div>
         </div>
-
         <div class="form-group row mb-3">
             <label name="status" class="col-sm-4 col-form-label">Status:</label>
-
             <div class="col-sm-8">
-                <input type="checkbox" name="status"  class="form-control"/>
+                <select name="status" class="form-control">
+                        <option value="false">Unemployed</option>
+                        <option value="true">Employed</option>
+                </select>
             </div>
         </div>
         <div class="form-group row mb-3">
             <label name="category" class="col-sm-4 col-form-label">Category:</label>
-
             <div class="col-sm-8">
                 <select name="category" class="form-control">
                     <c:forEach var="i" items="${allcategories}">
@@ -80,8 +77,69 @@
                     </c:forEach>
 
                 </select>
-\            </div>
+            </div>
         </div>
+
+
+        <div style="display: flex">
+
+
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">Python:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="python"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">Java:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="java"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">JavaScript:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="javascript"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">PHP:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="php"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">.NET:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="net"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">C++:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="Cp"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">C++:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="C"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label  class="col-sm-4 col-form-label">C++:</label>
+            <div class="col-sm-8">
+                <input type="checkbox" name="Cs"  class="form-control"/>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
         <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
     </form>
 </section>
