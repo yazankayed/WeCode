@@ -18,6 +18,7 @@
     <div class="forms-container">
         <div class="signin-signup">
             <form:form action="/login" class="sign-in-form" method="post" modelAttribute="newLogin">
+                <a style="margin-bottom: 20%" id="logo_img" class="navbar-brand w-75" href="/"> <img class="w-100" src="/Images/Logo.png"> </a>
                 <h2 class="title">Sign In</h2>
                 <form:errors path="email"/>
                 <div class="input-field">
@@ -49,6 +50,7 @@
                 </div>
             </form:form>
                 <form:form action="/register" class="sign-up-form" method="post" modelAttribute="newUser">
+                    <a style="margin-bottom: 20%" id="logo_img" class="navbar-brand w-75" href="/"> <img class="w-100" src="/Images/Logo.png"> </a>
                 <h2 class="title">Sign Up</h2>
                     <form:errors path="userName"/>
                 <div class="input-field">

@@ -154,12 +154,12 @@ public class HomeController {
 
     @GetMapping("/success")
     public String success(Model model, HttpSession session) {
-        int x = 0;
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("userId" , userId);
+            int x = 0;
             if (session.getAttribute("user_id")!=null){x=1;}
             if (session.getAttribute("user_id")==null){x=0;}
             model.addAttribute("x" , x);
@@ -176,6 +176,11 @@ public class HomeController {
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("allCategories", categoryService.allCategories());
+            model.addAttribute("userId" , userId);
+            int x = 0;
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
 
             return "showCategories.jsp";
         }
