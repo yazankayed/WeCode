@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;&display=swap');
 
 :root{
-    --yallow:#f9ca24;
+    --yallow:#1abc9c;
 
 }
 *{
@@ -46,7 +46,7 @@ body{
     padding-left: 35rem;
 }
 section{
-    min-height: 100vh;
+    min-height: 50vh;
     padding: 1rem;
 }
 .btn{

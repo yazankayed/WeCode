@@ -14,13 +14,13 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 <%--head section starts --%>
 <header>
     <div class="user">
-        <img src="/Images/userimg.jpeg" alt="">
-        <h3 class="name"> Yousef Shadid</h3>
-        <p class="post"> fort end develoloper</p>
+        <img src="${developer.image}" alt="">
+        <h3 class="name">${developer.userName}</h3>
+        <p class="post">${developer.category.categoryType}</p>
     </div>
     <nav class="navbar">
         <ul>
-            <li><a href="#home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#education">Education</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -31,109 +31,66 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 
 <%-- header section ends--%>
 <div id="menu" class="fas fa-bars"></div>
-<%-- home section strats--%>
-<section class="home" id="home">
-    <h3> HI THERE !</h3>
-    <H1> I`M <span> Yousef shadid</span></H1>
-    <P>hkgkjhkjhkjhkjhkjhkjk</P>
-    <a href="#about"> <button class="btn" > About Me<i class="fas fa-user"></i></button></a>
 
-</section>
-
-<%-- home section ends--%>
+<%-- about section starts--%>
 <section class="about" id="about">
     <h1 class="heading"> <span>About</span> Me</h1>
     <div class="row">
         <div class="info">
-            <h3><span> name : </span> Yousef Shadid</h3>
-            <h3><span> Age :</span> 26</h3>
-            <h3><span> Qualification : </span> BMS</h3>
-            <h3><span> Post :</span> Front end Developer</h3>
-            <h3><span> Language</span> Arabic</h3>
-            <a href="#"><button class="btn"> Download CV <i class="fas fa-download"></i></button> </a>
+            <h3><span> name : </span> ${developer.userName} </h3>
+            <h3> <span> ID : </span>${developer.idNum}  </h3>
+            <h3><span> Position :</span>${developer.category.categoryType} Developer</h3>
+
+            <a href="${developer.cv}" target="_blank"><button class="btn"> Download CV <i class="fas fa-download"></i></button> </a>
         </div>
 
         <div class="counter">
             <div class="box">
-                <span>2+</span>
-                <h3>Years of Experiece </h3>
+                <span>${developer.experience}+</span>
+                <h3>Years of Experience </h3>
             </div>
             <div class="box">
-                <span>100+</span>
-                <h3>Project Completed</h3>
+                <span>20+</span>
+                <h3>Projects Completed</h3>
             </div>
-
-            <div class="box">
-                <span>430+</span>
-                <h3>Happy Clients</h3>
-            </div>
-
             <div class="box">
                 <span>12+</span>
                 <h3>Awards Won</h3>
             </div>
-
         </div>
     </div>
 </section>
 <%--about section ends--%>
 <%-- education section starts--%>
 <section class="education" id="education">
-    <h1 class="heading"> My<span>Education</span> </h1>
+    <h1 class="heading"> <span>Languages</span> </h1>
 
     <div class="box-container">
 
-        <div class="box">
-          <i class="fas fa-graduation-cap"></i>
-            <span>2016</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
-        </div>
+        <c:forEach items = ""  var = "lang">
 
         <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <span>2017</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
+            <i class="fa-solid fa-code"></i>
+            <h3></h3>
         </div>
-
-        <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <span>2018</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <span>2019</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <span>2020</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
-        </div>
-
-        <div class="box">
-            <i class="fas fa-graduation-cap"></i>
-            <span>2021</span>
-            <h3> Front edn Development</h3>
-            <p>sadasdasdsedtrfhuijokldrftgyhujifghuijo</p>
-        </div>
-
-
+        </c:forEach>
     </div>
 
 </section>
 <%-- education section ends--%>
 
+<%--Skills--%>
+
+<section class="education" id="education">
+    <h1 class="heading"> <span>Skills</span> </h1>
+
+
+
+</section>
+
 <%--Contact section starts--%>
 <section class="contact" id="contact">
-    <h1 class="heading"> My<span>Contact</span> Me</h1>
+    <h1 class="heading"> My<span>Contacts</span></h1>
 
         <div class="row">
             <div class="content">
@@ -142,20 +99,12 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
 
                 <div class="info">
 
-                    <h3><i class="fas fa-envelope"></i> Yosuef@Gmail.com</h3>
+                    <h3><i class="fas fa-envelope"></i> ${developer.email}</h3>
                     <h3><i class="fas fa-phone"></i> 009725566778</h3>
                     <h3><i class="fas fa-phone"></i> 009725566778</h3>
-                    <h3><i class="fas fa-map-marker-alt"></i> Ammad,Jordan</h3>
+                    <h3><i class="fas fa-map-marker-alt"></i>${developer.location}</h3>
                 </div>
             </div>
-
-            <form action="text">
-                <input type="text" placeholder="name" class="box">
-                <input type="text" placeholder="email" class="box">
-                <input type="text" placeholder="project" class="box">
-                <textarea name="" id="" cols="30" rows="10" class="box massage" placeholder="message"></textarea>
-                <button type="submit" class="btn"> Send<i class="fas fa-paper-plane"></i></button>
-            </form>
         </div>
 </section>
 <%--Contact section ends--%>
