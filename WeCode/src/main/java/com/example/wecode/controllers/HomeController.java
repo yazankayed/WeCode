@@ -285,7 +285,7 @@ public class HomeController {
             model.addAttribute("currentUser", currentUser);
 
             Category category = categoryService.findCategory(id);
-            model.addAttribute("category", category);
+            model.addAttribute("category", category.getUsers());
 
             return "catdev.jsp";
         }
@@ -419,6 +419,100 @@ public class HomeController {
         session.invalidate();
         return "redirect:/logincompany";
     }
+
+    @GetMapping("/showalldev")
+    public String showingAllDevelopers(Model model, HttpSession session) {
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            Company currentCompany = companyService.findCompanyById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            model.addAttribute("allDevelopers", userServ.allUsers());
+
+            return "alldevs.jsp";
+        }
+        return "redirect:/";
+    }
+
+
+
+
+
+
+    @GetMapping("/byskillsform/new")
+    public String hireBySkillsForm(@ModelAttribute("skills") Skills skills, Model model, HttpSession session){
+
+
+        return "hirebyskillsform.jsp";
+    }
+
+    @PostMapping("/companyskills")
+    public String companyskills( @Valid @ModelAttribute("skills") Skills skills, BindingResult result, HttpSession session) {
+
+        if (result.hasErrors()) {
+            return "hirebyskillsform.jsp";
+        } else {
+            int[] Req = new int[]{skills.getCommitment(),skills.getCommunicationSkills(),skills.getLeaderShip(),skills.getProblemSolving(),skills.getResearchSkills(),skills.getSelfSufficient(), skills.getTeamWork(),skills.getTimeManagement(),skills.getWorkingUnderPressure()};
+            session.setAttribute("companyreq",Req);
+            return "redirect:/comparingJobVsDev";
+        }
+    }
+
+
+
+
+    @GetMapping("/comparingJobVsDev")
+
+    public  String companySkillsVsDevs(HttpSession session,Model model){
+        int[] companyReq= (int[]) session.getAttribute("companyreq");
+
+
+        int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
+
+        JSONArray jsonArray = new JSONArray(companyReq);
+        JSONArray jsonArray2 = new JSONArray(employeeSkills);
+
+        model.addAttribute("company",jsonArray);
+        model.addAttribute("employee",jsonArray2);
+
+        return "SkillCharTesting.jsp";
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
