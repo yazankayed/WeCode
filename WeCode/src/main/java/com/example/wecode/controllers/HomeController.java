@@ -215,6 +215,12 @@ public class HomeController {
     }
     @GetMapping("/contactus")
     public String conactus(@ModelAttribute("feedback") FeedBack feedback,Model model, HttpSession session) {
+        Long userId = (Long) session.getAttribute("user_id");
+        model.addAttribute("userId" , userId);
+        int x = 0;
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
         model.addAttribute("allFeedback", feedBackService.allFeedBacks());
 
 
