@@ -54,6 +54,7 @@
                 <input type="text" name="cv"  class="form-control"/>
             </div>
         </div>
+
         <div class="form-group row mb-3">
             <label  class="col-sm-4 col-form-label">Image:</label>
 <%--            <form:errors path="image" style="color:red;"/>--%>
@@ -62,6 +63,25 @@
             </div>
         </div>
 
+        <div class="form-group row mb-3">
+            <label name="status" class="col-sm-4 col-form-label">Status:</label>
+
+            <div class="col-sm-8">
+                <input type="checkbox" name="status"  class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label name="category" class="col-sm-4 col-form-label">Category:</label>
+
+            <div class="col-sm-8">
+                <select name="category" class="form-control">
+                    <c:forEach var="i" items="${allcategories}">
+                        <option value="${i.id}">${i.categoryType}</option>
+                    </c:forEach>
+
+                </select>
+\            </div>
+        </div>
         <input id="button" type="submit" value="Submit" class="btn btn-primary"/>
     </form>
 </section>

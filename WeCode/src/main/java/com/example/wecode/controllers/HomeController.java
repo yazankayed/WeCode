@@ -105,6 +105,7 @@ public class HomeController {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
+            model.addAttribute("allcategories", categoryService.allCategories());
             return "updateuserprofile.jsp";
         }
         return "redirect:/";
@@ -118,11 +119,13 @@ public class HomeController {
                          @RequestParam("experience") Integer experience,
                          @RequestParam("location") String location,
                          @RequestParam("cv") String cv,
-
-                         @RequestParam("image") String image)
+                           @RequestParam("status") String status,
+                         @RequestParam("image") String image,
+                           @RequestParam("category") Long category)
     {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
+        Category categoryy = categoryService.findCategory(category);
 
         currentUser.setUserName(userName);
         currentUser.setEmail(email);
@@ -132,7 +135,9 @@ public class HomeController {
         currentUser.setCv(cv);
         currentUser.setImage(image);
 
-//        currentUser.setStatus(Boolean.parseBoolean(status));
+        currentUser.setStatus(Boolean.parseBoolean(status));
+        currentUser.setCategory(categoryy);
+
         userServ.updateUser(currentUser);
 
         return "redirect:/success";
@@ -292,6 +297,26 @@ public class HomeController {
     }
 
 
+
+    @GetMapping("/skills/new")
+    public String NewSkills(@ModelAttribute("skills") Skills skills, Model model, HttpSession session){
+
+        Long userId = (Long) session.getAttribute("user_id");
+        User currentUser = userServ.findUserById(userId);
+        model.addAttribute("currentUser", currentUser);
+        return "skills.jsp";
+    }
+
+    @PostMapping("/createskills")
+    public String createSkills( @Valid @ModelAttribute("skills") Skills skills, BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "skills.jsp";
+        } else {
+            skillsService.createSkills(skills);
+            return "redirect:/skills/new";
+        }
+    }
 
 
 
