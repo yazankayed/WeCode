@@ -68,6 +68,26 @@ public class HomeController {
     }
 
 
+    @GetMapping("/userUpdateForm")
+    public String updateUserForm(@ModelAttribute("user") User user, Model model, HttpSession session) {
+        if (session.getAttribute("user_id") != null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+
+            return "userFormTest.jsp";
+        }
+        return "redirect:/";
+    }
+
+    @PutMapping("/updateUser")
+    public String updateUser(@ModelAttribute("user") User user){
+        userServ.updateUser(user);
+        return "redirect:/updateUserForm";
+    }
+
+
 
 
     @GetMapping("/SkillCharTesting")
