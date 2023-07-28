@@ -8,7 +8,7 @@ w<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="U
     <title>Skills</title>
 </head>
 <body>
-<h1>New Ninja</h1>
+<h1>New Skills</h1>
 <form:form action="/createskills" method="post" modelAttribute="skills">
   <div class="form-group">
     <div class="form-group row mb-3">

@@ -16,7 +16,7 @@
   const arr2= JSON.parse('<c:out value="${employee}" />');
 
   const data = {
-    labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running',"Playing","looool"],
+    labels: ['Commitment', 'Communication Skills', 'LeaderShip', 'Problem Solving', 'Research Skills', 'Self-Sufficient', 'Teamwork',"Time management","Work Under Pressure"],
     datasets: [{
       label: 'Company Requirements',
       data: arr,
