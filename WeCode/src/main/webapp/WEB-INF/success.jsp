@@ -12,9 +12,14 @@
   <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="/CSS/home.css">
-</head>
-<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+<%--nav-bar--%>
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
     <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
@@ -59,7 +64,10 @@
       </div>
     </div>
 </nav>
-<div class="container">
+
+<%--containter --%>
+<div id="whiteboard"  class="container">
+  <div id="containr">
   <div class="slogan">
     <h1 class="slogan_text">Make The World A Better Place With a Developer.</h1>
   </div>
@@ -67,8 +75,102 @@
     <img  id="pro_bro" src="Images/Programming-bro.png" alt="pro-bro">
   </div>
 </div>
+</div>
+
+<h1 style="color: #1abc9c; margin-top: 100px" class="text-center">About Us</h1>
+<div class="projcard-container">
+
+  <div class="projcard projcard-blue">
+    <div class="projcard-innerbox">
+      <img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
+      <div class="projcard-textbox">
+        <div class="projcard-title">Card Title</div>
+        <div class="projcard-subtitle">This explains the card in more detail</div>
+        <div class="projcard-bar"></div>
+        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+        <div class="projcard-tagbox">
+          <span class="projcard-tag">HTML</span>
+          <span class="projcard-tag">CSS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projcard projcard-red">
+    <div class="projcard-innerbox">
+      <img class="projcard-img" src="https://picsum.photos/800/600?image=1080" />
+      <div class="projcard-textbox">
+        <div class="projcard-title">That's Another Card</div>
+        <div class="projcard-subtitle">I don't really think that I need to explain anything here</div>
+        <div class="projcard-bar"></div>
+        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+        <div class="projcard-tagbox">
+          <span class="projcard-tag">PHP</span>
+          <span class="projcard-tag">SQL</span>
+          <span class="projcard-tag">Database</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projcard projcard-green">
+    <div class="projcard-innerbox">
+      <img class="projcard-img" src="https://picsum.photos/800/600?image=1039" />
+      <div class="projcard-textbox">
+        <div class="projcard-title">And a Third Card</div>
+        <div class="projcard-subtitle">You know what this is by now</div>
+        <div class="projcard-bar"></div>
+        <div class="projcard-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
+        <div class="projcard-tagbox">
+          <span class="projcard-tag">Excel</span>
+          <span class="projcard-tag">VBA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
+    <div class="projcard-innerbox">
+      <img class="projcard-img" src="https://picsum.photos/800/600?image=943" />
+      <div class="projcard-textbox">
+        <div class="projcard-title">Last Card</div>
+        <div class="projcard-subtitle">That's the last one. Have a nice day!</div>
+        <div class="projcard-bar"></div>
+        <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+        <div class="projcard-tagbox">
+          <span class="projcard-tag">iOS</span>
+          <span class="projcard-tag">Android</span>
+          <span class="projcard-tag">Cordova</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+<div >
+
+
+<%--footer--%>
+<div class=" navbar mt-auto bg-dark">
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-0 border-top">
+    <div class="col-md-4 d-flex align-items-center">
+      <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+      </a>
+      <p class="mb-3 mb-md-0 text-white">&copy; 2023 Company, Inc</p>
+    </div>
+
+    <div class="nav col-md-4 d-flex justify-content-md-center ">
+      <img style="width: 7%" class="mx-3"  id="facebook"src="/Images/Facebook-logo.png" alt="facebook-icon">
+      <img style="width: 7%" class="mx-3 "    src="/Images/Instagram.png" alt="instagram-icon">
+      <img style="width: 7%" class="mx-3"  src="/Images/twitter.png" alt="facebook-icon">
+    </div>
+  </footer>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/JS/home.js"></script>
 </body>
 </html>
