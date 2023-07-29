@@ -352,7 +352,7 @@ public class UserController {
 
     @GetMapping("/company/{id}")
     public String companyInfo(@PathVariable("id") Long id, Model model, HttpSession session){
-        if (session.getAttribute("user_id")!=null) {
+        if (session.getAttribute("user_id")!=null || session.getAttribute("company_id")!=null ) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
