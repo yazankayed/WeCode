@@ -17,17 +17,7 @@
 </head>
 <body>
 
-<%--<form:form action="/chat/new" method="post" modelAttribute="chat">--%>
-<%--    <form:input type="hidden" path="user" value="${user.id}"/>--%>
-<%--    <p class="error" style="color: red;"><form:errors path="message"/></p>--%>
 
-<%--    <p>--%>
-<%--        <form:label path="message">Message</form:label>--%>
-<%--        <form:input path="message"/>--%>
-<%--    </p>--%>
-
-<%--    <input type="submit" value="Submit" class="btn btn-primary"/>--%>
-<%--</form:form>--%>
 <%--nav-bar--%>
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
@@ -83,11 +73,23 @@
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/156381/profile/profile-80.jpg" /></figure>
     </div>
     <div class="messages">
-        <div class="messages-content"></div>
+        <div class="messages-content">
+            <c:forEach var="i" items="${allMsges}">
+                <h5 style="margin:5px "><c:out value="${i.user.userName}"/>:</h5>
+
+                <h5 style="margin:5px "><c:out value="${i.message}"/></h5>
+            </c:forEach>
+        </div>
     </div>
     <div class="message-box">
-        <textarea type="text" class="message-input" placeholder="Type message..."></textarea>
-        <button type="submit" class="message-submit">Send</button>
+
+        <form:form action="/chat/new" method="post" modelAttribute="chat">
+            <form:input type="hidden" path="user" value="${currentUser.id}"/>
+            <p class="error" style="color: red;"><form:errors path="message"/></p>
+            <form:textarea type="text" path="message" class="message-input" placeholder="Type message..."></form:textarea>
+            <button type="submit" class="message-submit">Send</button>
+        </form:form>
+
     </div>
 
 </div>
