@@ -5,6 +5,8 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <title>Title</title>
     <%-- font awesome cdn like --%>
     <link rel="stylesheet"
@@ -12,7 +14,6 @@
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/CSS/devinfe.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
@@ -91,7 +92,7 @@
 
 <section class="education" id="education">
     <h1 class="heading"> <span>Skills</span> </h1>
-    <div style="width: 40%;">
+    <div style="width: 80%; height: 80%;margin: 1% 25%">
         <canvas id="myRadarChart" width="400" height="400"></canvas>
 
         <script>
@@ -171,8 +172,7 @@
 
 
 <%--jquery cdn link--%>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="JS/devinfo.js"></script>
 </body>
 
