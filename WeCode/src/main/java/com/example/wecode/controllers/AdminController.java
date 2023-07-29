@@ -1,6 +1,7 @@
 package com.example.wecode.controllers;
 
 import com.example.wecode.services.*;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,16 +31,24 @@ public class AdminController {
     }
 
     @GetMapping("/adminshowcompanies")
-    public String adminshowcompanies(Model model){
+    public String adminshowcompanies(Model model, HttpSession session){
+        int x = 0;
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
         model.addAttribute("allcompanies",companyService.allCompanies());
+
 
         return "adminshowcompanies.jsp";
 
     }
     @GetMapping("/adminshowusers")
-    public String adminshowusers(Model model){
+    public String adminshowusers(Model model, HttpSession session){
         model.addAttribute("allusers",userServ.allUsers());
-
+        int x = 0;
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
         return "adminshowusers.jsp";
 
     }
