@@ -121,13 +121,13 @@
             </div>
         </div>
         <div class="form-group row mb-3">
-            <label  class="col-sm-4 col-form-label">C++:</label>
+            <label  class="col-sm-4 col-form-label">C:</label>
             <div class="col-sm-8">
                 <input type="checkbox" name="C"  class="form-control"/>
             </div>
         </div>
         <div class="form-group row mb-3">
-            <label  class="col-sm-4 col-form-label">C++:</label>
+            <label  class="col-sm-4 col-form-label">C#:</label>
             <div class="col-sm-8">
                 <input type="checkbox" name="Cs"  class="form-control"/>
             </div>
