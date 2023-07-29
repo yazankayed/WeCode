@@ -340,9 +340,10 @@ public class UserController {
     public String Devinfo(@PathVariable("id") Long id, Model model, HttpSession session){
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
-            User currentUser = userServ.findUserById(userId);
+            User currentUser = userServ.findUserById(id);
+            List<Languages> languages = currentUser.getLanguages();
             model.addAttribute("currentUser", currentUser);
-
+            model.addAttribute("langs" , languages );
             User developer = userServ.findUserById(id);
             model.addAttribute("developer", developer);
 
