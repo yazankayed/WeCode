@@ -76,6 +76,43 @@
         </div>
     </nav>
 
+    <c:if test="${x == 0}">
+        <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
+    </c:if>
+    <c:if test="${x == 1}">
+        <a style="background-color:#1abc9c"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
+    </c:if>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <%--footer--%>
     <div class=" navbar mt-auto bg-dark">
