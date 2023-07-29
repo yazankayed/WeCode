@@ -27,9 +27,13 @@
   <nav class="navbar">
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/skills/new">Skills</a></li>
-      <li><a href="/update">Update Info</a></li>
-      <li><a style="background-color: darkred" href="#">Delete Account</a></li>
+      <c:if test="${g==1}">
+        <li><a href="/hireadeveloper/${developer.id}">Hire Now</a></li>
+      </c:if>
+      <c:if test="${g==0}">
+        <li><a href="#">Already Hired</a></li>
+      </c:if>
+
     </ul>
   </nav>
 
