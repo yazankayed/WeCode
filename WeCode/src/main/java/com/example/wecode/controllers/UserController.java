@@ -85,6 +85,10 @@ public class UserController {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
+            int x = 0;
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
             model.addAttribute("allcategories", categoryService.allCategories());
             return "updateuserprofile.jsp";
         }
@@ -92,7 +96,7 @@ public class UserController {
     }
 
     @PatchMapping("/updateuser")
-    public String update(  HttpSession session ,
+    public String update(Model model ,  HttpSession session ,
                            @RequestParam("userName") String userName,
                            @RequestParam("email") String email,
                            @RequestParam("idNum") Integer idNum,
@@ -113,8 +117,10 @@ public class UserController {
 
     )
     {
+
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
+
         Category categoryy = categoryService.findCategory(category);
         if (python == true)
         {
@@ -331,7 +337,10 @@ public class UserController {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
-
+            int x = 0;
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
             Category category = categoryService.findCategory(id);
             model.addAttribute("category", category.getUsers());
 
@@ -414,6 +423,10 @@ public class UserController {
 
     @GetMapping("/skills/new")
     public String NewSkills(@ModelAttribute("skills") Skills skills, Model model, HttpSession session){
+        int x = 0;
+        if (session.getAttribute("user_id")!=null){x=1;}
+        if (session.getAttribute("user_id")==null){x=0;}
+        model.addAttribute("x" , x);
 
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);

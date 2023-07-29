@@ -139,8 +139,7 @@
                                 <div class="form-group row mb-3">
                                     <label name="category" class="col-sm-4 col-form-label">Status:</label>
                                     <div class="col-sm-8">
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>select Status</option>
+                                        <select name="status" class="form-select" aria-label="Default select example">
                                             <option value="false">Unemployed</option>
                                             <option value="true">Employed</option>
                                         </select>
@@ -150,7 +149,7 @@
                                 <div class="form-group row mb-3">
                                     <label name="category" class="col-sm-4 col-form-label">Category:</label>
                                     <div class="col-sm-8">
-                                        <select class="form-select" aria-label="Default select example">
+                                        <select name="category" class="form-select" aria-label="Default select example">
                                             <option selected>select Category</option>
                                             <c:forEach var="i" items="${allcategories}">
                                                 <option value="${i.id}">${i.categoryType}</option>
