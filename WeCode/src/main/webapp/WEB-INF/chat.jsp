@@ -87,13 +87,13 @@
             <form:input type="hidden" path="user" value="${currentUser.id}"/>
             <p class="error" style="color: red;"><form:errors path="message"/></p>
             <form:textarea type="text" path="message" class="message-input" placeholder="Type message..."></form:textarea>
-            <button type="submit" class="message-submit">Send</button>
+            <button type="submit" style="background-color: #1abc9c;" class="message-submit">Send</button>
         </form:form>
 
     </div>
 
 </div>
-<div class="bg"></div>
+
 
 
 <script src="JS/chat.js"></script>

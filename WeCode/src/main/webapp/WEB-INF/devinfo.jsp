@@ -30,7 +30,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/skills/new">Skills</a></li>
             <li><a href="/update">Update Info</a></li>
-            <li><a style="background-color: darkred" href="/deleteuser/${developer.id}">Delete Account</a></li>
+            <li><a style="background-color: darkred" href="/deleteusers/${developer.id}">Delete Account</a></li>
         </ul>
     </nav>
 
@@ -92,7 +92,7 @@
 
 <section class="education" id="education">
     <h1 class="heading"> <span>Skills</span> </h1>
-    <div style="width: 60%; height: 80%;margin: 1% 40% 1% 10%; background-color: white">
+    <div style="width: 60%; height: 80%;margin: 1% 1% 1% 20%;">
         <canvas id="myRadarChart" width="400" height="400"></canvas>
 
         <script>
@@ -102,7 +102,7 @@
             const data = {
                 labels: ['Commitment', 'Communication Skills', 'LeaderShip', 'Problem Solving', 'Research Skills', 'Self-Sufficient', 'Teamwork',"Time management","Work Under Pressure"],
                 datasets: [{
-                    label: 'Company Requirements',
+                    label: 'Developer Requirements',
                     data: arr2,
                     fill: true,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
