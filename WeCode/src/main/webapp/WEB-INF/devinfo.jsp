@@ -12,6 +12,8 @@
                                 integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
                                 crossorigin="anonymous" referrerpolicy="no-referrer" />
                             <link rel="stylesheet" href="/CSS/devinfe.css">
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
                     </head>
 
                     <body>
@@ -89,56 +91,52 @@
 
                                                     <section class="education" id="education">
                                                         <h1 class="heading"> <span>Skills</span> </h1>
-                                                        <div class="box-container">
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Commitment</h3>
-                                                                <h3>${developer.skills.commitment}/100</h3>
+                                                        <div style="width: 40%;">
+                                                            <canvas id="myRadarChart" width="400" height="400"></canvas>
 
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Communication Skills</h3>
-                                                                <h3>${developer.skills.communicationSkills}/100</h3>
+                                                            <script>
+                                                                // Get the JSON array from the model attribute and parse it to a JavaScript array
+                                                                const arr2= JSON.parse('<c:out value="${employee}" />');
 
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>LeaderShip</h3>
-                                                                <h3>${developer.skills.leaderShip}/100</h3>
+                                                                const data = {
+                                                                    labels: ['Commitment', 'Communication Skills', 'LeaderShip', 'Problem Solving', 'Research Skills', 'Self-Sufficient', 'Teamwork',"Time management","Work Under Pressure"],
+                                                                    datasets: [{
+                                                                        label: 'Company Requirements',
+                                                                        data: arr2,
+                                                                        fill: true,
+                                                                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                                                        borderColor: 'rgb(255, 99, 132)',
+                                                                        pointBackgroundColor: 'rgb(255, 99, 132)',
+                                                                        pointBorderColor: '#fff',
+                                                                        pointHoverBackgroundColor: '#fff',
+                                                                        pointHoverBorderColor: 'rgb(255, 99, 132)'
+                                                                    }]
+                                                                };
 
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Problem Solving</h3>
-                                                                <h3>${developer.skills.problemSolving}/100</h3>
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Research Skills</h3>
-                                                                <h3>${developer.skills.researchSkills}/100</h3>
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Self Sufficiency</h3>
-                                                                <h3>${developer.skills.selfSufficient}/100</h3>
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Team Work</h3>
-                                                                <h3>${developer.skills.teamWork}/100</h3>
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Time Management</h3>
-                                                                <h3>${developer.skills.timeManagement}/100</h3>
-                                                            </div>
-                                                            <div class="box">
-                                                                <i class="fa-solid fa-gears"></i>
-                                                                <h3>Working Under Pressure</h3>
-                                                                <h3>${developer.skills.workingUnderPressure}/100</h3>
-                                                            </div>
+                                                                const config = {
+                                                                    type: 'radar',
+                                                                    data: data,
+                                                                    options: {
+                                                                        elements: {
+                                                                            line: {
+                                                                                borderWidth: 3
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                };
 
+                                                                // Get the canvas element using the provided ID
+                                                                const canvas = document.getElementById('myRadarChart');
+                                                                // Check if the canvas element exists in the DOM
+                                                                if (canvas) {
+                                                                    // Get the 2D context of the canvas element
+                                                                    const ctx = canvas.getContext('2d');
+                                                                    // Create the radar chart using Chart.js
+                                                                    new Chart(ctx, config);
+                                                                } else {
+                                                                    console.error('Canvas element with ID "myRadarChart" not found.');
+                                                                }
+                                                            </script>
                                                         </div>
 
 

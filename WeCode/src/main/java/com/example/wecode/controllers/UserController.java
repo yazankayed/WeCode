@@ -4,6 +4,7 @@ import com.example.wecode.models.*;
 import com.example.wecode.services.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -346,6 +347,13 @@ public class UserController {
             model.addAttribute("langs" , languages );
             User developer = userServ.findUserById(id);
             model.addAttribute("developer", developer);
+
+            Skills y=developer.getSkills();
+            int[] Req = new int[]{y.getCommitment(),y.getCommunicationSkills(),y.getLeaderShip(),y.getProblemSolving(),y.getResearchSkills(),y.getSelfSufficient(), y.getTeamWork(),y.getTimeManagement(),y.getWorkingUnderPressure()};
+            JSONArray jsonArray2 = new JSONArray(Req);
+            model.addAttribute("employee",jsonArray2);
+
+
 
             return "devinfo.jsp";
         }
