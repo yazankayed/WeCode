@@ -79,49 +79,49 @@
                 <div class="content">
                     <h2  class="title text-white bg-black">ASAL</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/2" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/3" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">Freightos</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/3" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/4" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">EXALT</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/4" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/5" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">AppiaTech</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/5" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/6" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2  class="title text-white bg-black">Gamiphy</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="/company/6" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="/company/7" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">Bisan</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/7" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/8" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">UpWork</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/8" style="background-color: #1abc9c" class="btn btn">Company Info</a>
+                    <a href="company/9" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
         </main>
