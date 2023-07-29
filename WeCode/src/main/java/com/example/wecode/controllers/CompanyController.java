@@ -1,8 +1,6 @@
 package com.example.wecode.controllers;
 
-import com.example.wecode.models.Company;
-import com.example.wecode.models.LoginCompany;
-import com.example.wecode.models.Skills;
+import com.example.wecode.models.*;
 import com.example.wecode.services.*;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -12,7 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 
 @Controller
@@ -118,6 +119,29 @@ public class CompanyController {
         return "redirect:/";
     }
 
+    @GetMapping("/devs/{id}")
+    public String DevinfoCompany(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("company_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(id);
+            List<Languages> languages = currentUser.getLanguages();
+            model.addAttribute("currentUser", currentUser);
+            model.addAttribute("langs" , languages );
+            User developer = userServ.findUserById(id);
+            model.addAttribute("developer", developer);
+
+            Skills y=developer.getSkills();
+            int[] Req = new int[]{y.getCommitment(),y.getCommunicationSkills(),y.getLeaderShip(),y.getProblemSolving(),y.getResearchSkills(),y.getSelfSufficient(), y.getTeamWork(),y.getTimeManagement(),y.getWorkingUnderPressure()};
+            JSONArray jsonArray2 = new JSONArray(Req);
+            model.addAttribute("employee",jsonArray2);
+
+
+
+            return "devinfo.jsp";
+        }
+        return "redirect:/company/loginform";
+    }
+
 
 
 
@@ -138,35 +162,42 @@ public class CompanyController {
         } else {
             int[] Req = new int[]{skills.getCommitment(),skills.getCommunicationSkills(),skills.getLeaderShip(),skills.getProblemSolving(),skills.getResearchSkills(),skills.getSelfSufficient(), skills.getTeamWork(),skills.getTimeManagement(),skills.getWorkingUnderPressure()};
             session.setAttribute("companyreq",Req);
-            return "redirect:/comparingJobVsDev";
+            return "redirect:/showalldevskills";
         }
     }
 
 
 
+    @GetMapping("/showalldevskills")
+    public String showingAllDevelopersSkills(Model model, HttpSession session) {
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            Company currentCompany = companyService.findCompanyById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            model.addAttribute("allDevelopers", userServ.allUsers());
 
-    @GetMapping("/comparingJobVsDev")
-
-    public  String companySkillsVsDevs(HttpSession session,Model model){
-        int[] companyReq= (int[]) session.getAttribute("companyreq");
-
-
-        int[] employeeSkills = new int[]{28, 48, 40, 90, 80, 27, 40,79,90};
-
-        JSONArray jsonArray = new JSONArray(companyReq);
-        JSONArray jsonArray2 = new JSONArray(employeeSkills);
-
-        model.addAttribute("company",jsonArray);
-        model.addAttribute("employee",jsonArray2);
-
-        return "SkillCharTesting.jsp";
+            return "alldevsskills.jsp";
+        }
+        return "redirect:/";
     }
 
 
+    @GetMapping("/comparingJobVsDev/{id}")
 
+    public  String companySkillsVsDevs(@PathVariable("id") Long id,HttpSession session,Model model){
+        if (session.getAttribute("company_id")!=null && session.getAttribute("companyreq")!=null ) {
+            int[] companyReq= (int[]) session.getAttribute("companyreq");
+        User developer = userServ.findUserById(id);
+        model.addAttribute("developer", developer);
+        Skills y=developer.getSkills();
+        int[] Req = new int[]{y.getCommitment(),y.getCommunicationSkills(),y.getLeaderShip(),y.getProblemSolving(),y.getResearchSkills(),y.getSelfSufficient(), y.getTeamWork(),y.getTimeManagement(),y.getWorkingUnderPressure()};
+        JSONArray jsonArray = new JSONArray(companyReq);
+        JSONArray jsonArray2 = new JSONArray(Req);
+        model.addAttribute("company",jsonArray);
+        model.addAttribute("employee",jsonArray2);
+        return "comparingskillchart.jsp";
+    }
+        return "redirect:/company/loginform";
 
-
-
-
-
+    }
 }
