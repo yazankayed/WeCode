@@ -103,12 +103,12 @@ public class UserController {
                            @RequestParam("category") Long category,
                            @RequestParam("python") boolean python,
                            @RequestParam("java") boolean java,
-                           @RequestParam("python") boolean javascript,
-                           @RequestParam("python") boolean php,
-                           @RequestParam("python") boolean net,
-                           @RequestParam("python") boolean Cp,
-                           @RequestParam("python") boolean C,
-                           @RequestParam("python") boolean Cs
+                           @RequestParam("javascript") boolean javascript,
+                           @RequestParam("php") boolean php,
+                           @RequestParam("net") boolean net,
+                           @RequestParam("Cp") boolean Cp,
+                           @RequestParam("C") boolean C,
+                           @RequestParam("Cs") boolean Cs
 
     )
     {
