@@ -89,7 +89,7 @@
 
                                                 <%--Skills--%>
 
-                                                    <section class="education" id="education">
+                                                    <section style="margin: 0 auto" class="education" id="education">
                                                         <h1 class="heading"> <span>Skills</span> </h1>
                                                         <div style="width: 40%;">
                                                             <canvas id="myRadarChart" width="400" height="400"></canvas>
@@ -110,7 +110,8 @@
                                                                         pointBorderColor: '#fff',
                                                                         pointHoverBackgroundColor: '#fff',
                                                                         pointHoverBorderColor: 'rgb(255, 99, 132)'
-                                                                    }]
+                                                         ovided ID
+                                                                const canvas = document.getElementById           }]
                                                                 };
 
                                                                 const config = {
@@ -125,8 +126,7 @@
                                                                     }
                                                                 };
 
-                                                                // Get the canvas element using the provided ID
-                                                                const canvas = document.getElementById('myRadarChart');
+                                                                // Get the canvas element using the pr('myRadarChart');
                                                                 // Check if the canvas element exists in the DOM
                                                                 if (canvas) {
                                                                     // Get the 2D context of the canvas element
