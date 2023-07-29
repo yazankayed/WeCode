@@ -1,0 +1,54 @@
+
+.logo_img {
+    width: 110%;
+    height: fit-content;
+}
+#logo_img{
+    width: 10%;
+    height: fit-content;
+    margin-right: 2.5%;
+}
+
+.search_bar{
+    margin-right: 13%;
+}
+
+#containr {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+#whiteboard {
+    width: 65%;
+}
+#pro_bro {
+    width: 110%;
+    margin-top: 20px;
+}
+
+.pro_bro {
+    flex: 1;
+}
+.slogan {
+    flex: 1;
+}
+
+#nav_links{
+    font-size: large;
+    font-weight: 500;
+    color: #1abc9c;
+    margin-left: 7px;
+}
+
+
+.slogan_text {
+    color: #1abc9c;
+}
+
+.containr {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+

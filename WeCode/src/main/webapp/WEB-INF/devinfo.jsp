@@ -29,7 +29,7 @@
                                         <li><a href="/">Home</a></li>
                                         <li><a href="/skills/new">Skills</a></li>
                                         <li><a href="/update">Update Info</a></li>
-                                        <li><a style="background-color: darkred" href="#">Delete Account</a></li>
+                                        <li><a style="background-color: darkred" href="/deleteuser/${developer.id}">Delete Account</a></li>
                                     </ul>
                                 </nav>
 
