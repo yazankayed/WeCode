@@ -134,10 +134,17 @@ public class CompanyController {
             int[] Req = new int[]{y.getCommitment(),y.getCommunicationSkills(),y.getLeaderShip(),y.getProblemSolving(),y.getResearchSkills(),y.getSelfSufficient(), y.getTeamWork(),y.getTimeManagement(),y.getWorkingUnderPressure()};
             JSONArray jsonArray2 = new JSONArray(Req);
             model.addAttribute("employee",jsonArray2);
+            int g;
+            if(developer.getCompany()!=null){
+                g=0;
+            }
+            else {
+                g=1;
+            }
+            model.addAttribute("g",g);
 
 
-
-            return "devinfo.jsp";
+            return "compdevinfo.jsp";
         }
         return "redirect:/company/loginform";
     }
@@ -149,9 +156,14 @@ public class CompanyController {
 
     @GetMapping("/byskillsform/new")
     public String hireBySkillsForm(@ModelAttribute("skills") Skills skills, Model model, HttpSession session){
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            Company currentCompany = companyService.findCompanyById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            return "hirebyskillsform.jsp";
+        }
+        return "redirect:/successcompany";
 
-
-        return "hirebyskillsform.jsp";
     }
 
     @PostMapping("/companyskills")
@@ -162,7 +174,7 @@ public class CompanyController {
         } else {
             int[] Req = new int[]{skills.getCommitment(),skills.getCommunicationSkills(),skills.getLeaderShip(),skills.getProblemSolving(),skills.getResearchSkills(),skills.getSelfSufficient(), skills.getTeamWork(),skills.getTimeManagement(),skills.getWorkingUnderPressure()};
             session.setAttribute("companyreq",Req);
-            return "redirect:/showalldevskills";
+            return "redirect:/comparingCat";
         }
     }
 
@@ -226,11 +238,55 @@ public class CompanyController {
         companyService.updateCompany(com);
         userServ.updateUser(h);
 
-        return "redirect:/showalldevskills";
+        return "redirect:/successcompany";
+    }
+
+    @GetMapping("/categorry/{id}")
+    public String categorrryDev(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            User currentCompany = userServ.findUserById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            int x = 0;
+            if (session.getAttribute("company_id")!=null){x=1;}
+            if (session.getAttribute("company_id")==null){x=0;}
+            model.addAttribute("x" , x);
+            Category category = categoryService.findCategory(id);
+            model.addAttribute("category", category.getUsers());
+
+            return "categorryDev.jsp";
+        }
+        return "redirect:/company/loginform";
     }
 
 
+    @GetMapping("/comparingCat")
+    public String ComperingCat(Model model, HttpSession session) {
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            Company currentCompany = companyService.findCompanyById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            model.addAttribute("allDevelopers", userServ.allUsers());
 
+            return "comparingCat.jsp";
+        }
+        return "redirect:/";
+    }
+    @GetMapping("/comparing/{id}")
+    public String comparingid(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("company_id")!=null) {
+            Long companyId = (Long) session.getAttribute("company_id");
+            User currentCompany = userServ.findUserById(companyId);
+            model.addAttribute("currentCompany", currentCompany);
+            int x = 0;
+            if (session.getAttribute("company_id")!=null){x=1;}
+            if (session.getAttribute("company_id")==null){x=0;}
+            model.addAttribute("x" , x);
+            Category category = categoryService.findCategory(id);
+            model.addAttribute("category", category.getUsers());
 
-
+            return "comparingID.jsp";
+        }
+        return "redirect:/company/loginform";
+    }
 }
