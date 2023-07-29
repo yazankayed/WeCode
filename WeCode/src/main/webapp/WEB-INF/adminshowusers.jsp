@@ -19,7 +19,7 @@
             <tr>
                 <td><c:out value="${i.id}"/></td>
                 <td><c:out value="${i.userName}"/></td>
-                <td><a href="/deletecompany/${i.id}">Delete</a></td>
+                <td><a href="/deleteuser/${i.id}">Delete</a></td>
 
             </tr>
         </c:forEach>
