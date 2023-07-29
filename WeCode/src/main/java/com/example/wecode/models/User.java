@@ -76,7 +76,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "languages_id")
     )
-    private List<Category> languages;
+    private List<Languages> languages;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="category_id")
@@ -197,11 +197,11 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    public List<Category> getLanguages() {
+    public List<Languages> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(List<Category> languages) {
+    public void setLanguages(List<Languages> languages) {
         this.languages = languages;
     }
 

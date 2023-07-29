@@ -73,13 +73,13 @@
 
                                                 <div class="box-container">
 
-                                                    <%-- <c:forEach items="" var="lang">--%>
+                                                     <c:forEach items="${langs}" var="lang">
 
                                                         <div class="box">
                                                             <i class="fa-solid fa-code"></i>
-                                                            <h3>Kareem</h3>
+                                                            <h3>${lang.programingLanguages}</h3>
                                                         </div>
-                                                        <%-- </c:forEach>--%>
+                                                         </c:forEach>
                                                 </div>
 
                                             </section>
@@ -89,57 +89,57 @@
 
                                                     <section class="education" id="education">
                                                         <h1 class="heading"> <span>Skills</span> </h1>
-<%--                                                        <div class="box-container">--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Commitment</h3>--%>
-<%--                                                                <h3>${developer.skills.commitment}/100</h3>--%>
+                                                        <div class="box-container">
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Commitment</h3>
+                                                                <h3>${developer.skills.commitment}/100</h3>
 
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Communication Skills</h3>--%>
-<%--                                                                <h3>${developer.skills.communicationSkills}/100</h3>--%>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Communication Skills</h3>
+                                                                <h3>${developer.skills.communicationSkills}/100</h3>
 
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>LeaderShip</h3>--%>
-<%--                                                                <h3>${developer.skills.leaderShip}/100</h3>--%>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>LeaderShip</h3>
+                                                                <h3>${developer.skills.leaderShip}/100</h3>
 
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Problem Solving</h3>--%>
-<%--                                                                <h3>${developer.skills.problemSolving}/100</h3>--%>
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Research Skills</h3>--%>
-<%--                                                                <h3>${developer.skills.researchSkills}/100</h3>--%>
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Self Sufficiency</h3>--%>
-<%--                                                                <h3>${developer.skills.selfSufficient}/100</h3>--%>
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Team Work</h3>--%>
-<%--                                                                <h3>${developer.skills.teamWork}/100</h3>--%>
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Time Management</h3>--%>
-<%--                                                                <h3>${developer.skills.timeManagement}/100</h3>--%>
-<%--                                                            </div>--%>
-<%--                                                            <div class="box">--%>
-<%--                                                                <i class="fa-solid fa-gears"></i>--%>
-<%--                                                                <h3>Working Under Pressure</h3>--%>
-<%--                                                                <h3>${developer.skills.workingUnderPressure}/100</h3>--%>
-<%--                                                            </div>--%>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Problem Solving</h3>
+                                                                <h3>${developer.skills.problemSolving}/100</h3>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Research Skills</h3>
+                                                                <h3>${developer.skills.researchSkills}/100</h3>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Self Sufficiency</h3>
+                                                                <h3>${developer.skills.selfSufficient}/100</h3>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Team Work</h3>
+                                                                <h3>${developer.skills.teamWork}/100</h3>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Time Management</h3>
+                                                                <h3>${developer.skills.timeManagement}/100</h3>
+                                                            </div>
+                                                            <div class="box">
+                                                                <i class="fa-solid fa-gears"></i>
+                                                                <h3>Working Under Pressure</h3>
+                                                                <h3>${developer.skills.workingUnderPressure}/100</h3>
+                                                            </div>
 
-<%--                                                        </div>--%>
+                                                        </div>
 
 
                                                     </section>
