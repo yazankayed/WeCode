@@ -6,7 +6,7 @@
                     <html>
 
                     <head>
-                        <title>Skills</title>
+                        <title>Update Profile</title>
                         <meta charset="UTF-8">
                         <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
                         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -86,7 +86,7 @@
                         <div style="margin-top: 50px" class="containr">
                             <form action="/updateuser" method="post">
                                 <input type="hidden" name="_method" value="PATCH">
-                                <h2>Updating</h2>
+                                <h2>Continue Setting-up your Profile</h2>
                                 <div class="form-group row mb-3">
                                     <label class="col-sm-4 col-form-label">User Name:</label>
                                     <div class="col-sm-8">

@@ -216,7 +216,7 @@ public class UserController {
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("userId" , userId);
             if(currentUser.getCv()==null){
-                return "redirect:/skills/new";
+                return "redirect:/update";
             }
             int x = 0;
             if (session.getAttribute("user_id")!=null){x=1;}
@@ -414,7 +414,9 @@ public class UserController {
             model.addAttribute("employee",jsonArray2);
             return "devinfo.jsp";
             }
-            return "redirect:/skills/new";
+            else{
+                return "redirect:/skills/new";
+            }
         }
         return "redirect:/";
     }
@@ -432,9 +434,9 @@ public class UserController {
         User currentUser = userServ.findUserById(userId);
         model.addAttribute("currentUser", currentUser);
         if (currentUser.getSkills()!=null){
-        return "skills.jsp";
+            return "redirect:/";
         }
-        return "redirect:/";
+        return "skills.jsp";
     }
 
     @PostMapping("/createskills")
