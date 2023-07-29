@@ -1,14 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ page isErrorPage="true" %>
-<html>
-<head>
-    <title>Companies</title>
-</head>
-<body>
-    <h1>All Companies</h1>
 
     <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -19,6 +8,11 @@
     <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+        <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons">
+        <link rel="stylesgeet" href="https://rawgit.com/creativetimofficial/material-kit/master/assets/css/material-kit.css">
         <title>Login and Registration</title>
         <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -75,6 +69,43 @@
             </div>
         </div>
     </nav>
+    <div class="container">
+        <div class="box">
+            <img src="/images/instagram.png" alt="">
+            <ul>
+                <li>Instagram</li>
+                <li>10 years</li>
+                <li>Social Media</li>
+                <li><i style="font-size:24px" class="fa"></i>
+                    <i style="font-size:24px" class="fa"></i>
+                    <i style="font-size:24px" class="fa"></i></li>
+            </ul>
+        </div>
+        <div class="About">
+            <ul>
+                <h1>About</h1>
+            </ul>
+
+            <ul>
+                <h3>Country</h3>
+                <li>USA</li>
+            </ul>
+            <ul>
+                <h3>More Info</h3>
+                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its
+                    layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+                    'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
+                    editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites
+                    still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose
+                    (injected humour and the like).</p>
+            </ul>
+            <ul>
+                <h3>Contact</h3>
+                <li>example@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+
 
     <c:if test="${x == 0}">
         <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
@@ -137,5 +168,4 @@
     <script type="text/javascript" src="/JS/developers.js"></script>
     </body>
     </html>
-</body>
-</html>
+
