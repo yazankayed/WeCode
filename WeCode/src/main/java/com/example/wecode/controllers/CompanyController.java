@@ -195,9 +195,42 @@ public class CompanyController {
         JSONArray jsonArray2 = new JSONArray(Req);
         model.addAttribute("company",jsonArray);
         model.addAttribute("employee",jsonArray2);
-        return "comparingskillchart.jsp";
+        int g;
+        if(developer.getCompany()!=null){
+            g=0;
+        }
+        else {
+            g=1;
+        }
+            User currentUser = userServ.findUserById(id);
+            List<Languages> languages = currentUser.getLanguages();
+            model.addAttribute("currentUser", currentUser);
+            model.addAttribute("langs" , languages );
+            model.addAttribute("g",g);
+
+            return "comparingskillchart.jsp";
     }
         return "redirect:/company/loginform";
 
     }
+
+    @GetMapping("/hireadeveloper/{id}")
+    public String hireADevloper(@PathVariable("id") Long id,HttpSession session){
+        Long ip= (Long) session.getAttribute("company_id");
+        Company com= companyService.findCompanyById(ip);
+        User h= userServ.findUserById(id);
+        h.setCompany(com);
+        List<User> users =com.getUsers();
+        users.add(h);
+        com.setUsers(users);
+        companyService.updateCompany(com);
+        userServ.updateUser(h);
+
+        return "redirect:/showalldevskills";
+    }
+
+
+
+
+
 }

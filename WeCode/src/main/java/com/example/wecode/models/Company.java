@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name="companies")
 public class Company {
@@ -26,6 +28,8 @@ public class Company {
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
 
+    @OneToMany(mappedBy="company", fetch = FetchType.LAZY)
+    private List<User> users;
     public Company() {}
 
     public Long getId() {
@@ -34,6 +38,14 @@ public class Company {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
     public String getCompanyName() {
