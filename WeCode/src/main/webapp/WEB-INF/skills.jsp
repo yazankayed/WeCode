@@ -74,7 +74,7 @@
             </nav>
 
 
-            <div class="containr">
+            <div style="margin-top: 50px" class="containr">
 
 
               <h1>New Skills</h1>
@@ -170,7 +170,8 @@
                                   </div>
                                 </div>
                                   <form:input type="hidden" path="user" value="${currentUser.id}" />
-                                  <button style="color: white;background-color: #1abc9c" type="submit" class="btn btn">Create</button>
+
+                                  <button style="color: white;background-color: #1abc9c" type="submit" class="btn btn">Submit</button>
                                   
               </form:form>
             </div>
