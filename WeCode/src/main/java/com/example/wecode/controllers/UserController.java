@@ -337,6 +337,26 @@ public class UserController {
         return "redirect:/";
     }
 
+
+    @GetMapping("/company/{id}")
+    public String companyInfo(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("user_id")!=null) {
+            Long userId = (Long) session.getAttribute("user_id");
+            User currentUser = userServ.findUserById(userId);
+            model.addAttribute("currentUser", currentUser);
+
+            Company comp = companyService.findCompanyById(id);
+            model.addAttribute("comp", comp);
+
+            return "companyinfo.jsp";
+        }
+        return "redirect:/";
+    }
+
+
+
+
+
     @GetMapping("/dev/{id}")
     public String Devinfo(@PathVariable("id") Long id, Model model, HttpSession session){
         if (session.getAttribute("user_id")!=null) {
