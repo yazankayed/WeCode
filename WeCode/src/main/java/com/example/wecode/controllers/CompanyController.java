@@ -103,7 +103,7 @@ public class CompanyController {
     @GetMapping("/logoutcompany")
     public String logoutCompany(HttpSession session) {
         session.invalidate();
-        return "redirect:/logincompany";
+        return "redirect:/company/loginform";
     }
 
     @GetMapping("/showalldev")

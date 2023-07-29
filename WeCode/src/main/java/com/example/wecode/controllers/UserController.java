@@ -209,6 +209,9 @@ public class UserController {
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("userId" , userId);
+            if(currentUser.getCv()==null){
+                return "redirect:/skills/new";
+            }
             int x = 0;
             if (session.getAttribute("user_id")!=null){x=1;}
             if (session.getAttribute("user_id")==null){x=0;}
@@ -344,9 +347,35 @@ public class UserController {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
-
             Company comp = companyService.findCompanyById(id);
             model.addAttribute("comp", comp);
+            String name="";
+            String img= "";
+            if(comp.getCompanyName()=="AXSOS"){
+                img = "https://www.axsos.me/fileadmin/template/media/axsos-logo.png";
+            }
+            if(comp.getCompanyName()=="ASAL"){
+                img = "https://media.licdn.com/dms/image/C4D0BAQEusQv93gwD2w/company-logo_200_200/0/1667900981277?e=2147483647&v=beta&t=ziViULdwSJKK8dUp59beaJqJZrr7oiZAwxTx5HtJIso";
+            }
+            if(comp.getCompanyName()=="Freightos"){
+                img = "https://upload.wikimedia.org/wikipedia/commons/4/43/Freightos.png";
+            }
+            if(comp.getCompanyName()=="EXALT"){
+                img = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKoAAACqCAMAAAAKqCSwAAAAclBMVEX3+fphm7l4eHh6fH2vzNvk7fKMt8yfwtTb6O3t8/bV5OyGs8mWvNB4qsOCr8fF2uSnx9ff4eFxpcCZvdHr7e670+BpoLyChIXO3+jm6Om20N6Ji4yUlZacnZ2eoKGSkpK2t7e+v8CoqavHyMjZ29yxsrLSlP/BAAACB0lEQVR4nO3W61aqQBiA4aEgQUBUpEy3bWvb/d9izADCwBzaa2GtVe/zy4BPXomTEAAAAAAAAAAAAAAAAAAAAAAAAD9OEtTS6fKVXF58fY/DvKlxuDCq6nXPG2Va0CzfCRGFBod95EqtwnArl2fa0N77s7PAIpOpx3vpT6IPPT/dSaf649Iyncb21Nw4sfalprZSlWpuHZRaU9t/74yplXVPTeq1dVraLLKnBtG8qeqgZtZzVYWp1lNfehyUisg0Wj7Krw1tqessUxuk2ZDvIpMjC/cmm6b1pf1z15YmrpmqK5zxDiAnDp5ttNa29K+zVOzl9+bzp+YPY7Gx9U1+bkt3/dplWE6+YHWj1KnxLe7StNZ9G1V6HJSW1svqS1KX481OXepFpZ77NaG19HtS31Tpsf60U6l3r92axF56i9R1PDa6ZprSJ/V8fdVb1fUThMuRw41SQ882w9Jr67/mr6pr0ul3gK0l1bdjnXxtyOPIIO7eONrSSzdyHrY2R7UYDxdaarDQ9iDn1KNnq825b3+u67d9sIr3UaneGn3mXNWpY2x4SfI9WGNf6rRUb3X8VnVePJpTDe8e3jcr+/uKSj2r0vuLPvTetyYrd2oxaW3O3If/TxVxubWnmkuvrWr5IZ0euT5VRGWur28vsiId7defCgAAAAAAAAAAAAAAAAAAAAAAAPxaH2CNH9rqbgxVAAAAAElFTkSuQmCC";
+            }
+            if(comp.getCompanyName()=="AppiaTech"){
+                img = "https://media.licdn.com/dms/image/C4D0BAQGZ0V5c-muKYg/company-logo_200_200/0/1519915926261?e=2147483647&v=beta&t=FAXOtggpN90NAFMxiTebUhDs9rM8O5lcHnm1IM07xjA";
+            }
+            if(comp.getCompanyName()=="Gamiphy"){
+                img = "https://ssw-portal.s3.amazonaws.com/company/71835/dJwX89YbdbeJmhbR2TqtiB.png";
+            }
+            if(comp.getCompanyName()=="Bisan"){
+                img = "https://www.bisan.com/storage/settings/December2020/VkQlzMMJjiZtWCXyVav3.png";
+            }
+            if(comp.getCompanyName()=="UpWork"){
+                img = "https://www.upwork.com/static/marketing/ui/master/img/logo-1200x630.png";
+            }
+            model.addAttribute("img", img);
 
             return "companyinfo.jsp";
         }
@@ -367,15 +396,16 @@ public class UserController {
             model.addAttribute("langs" , languages );
             User developer = userServ.findUserById(id);
             model.addAttribute("developer", developer);
+            if (developer.getSkills()!=null){
+
 
             Skills y=developer.getSkills();
             int[] Req = new int[]{y.getCommitment(),y.getCommunicationSkills(),y.getLeaderShip(),y.getProblemSolving(),y.getResearchSkills(),y.getSelfSufficient(), y.getTeamWork(),y.getTimeManagement(),y.getWorkingUnderPressure()};
             JSONArray jsonArray2 = new JSONArray(Req);
             model.addAttribute("employee",jsonArray2);
-
-
-
             return "devinfo.jsp";
+            }
+            return "redirect:/skills/new";
         }
         return "redirect:/";
     }
@@ -388,7 +418,10 @@ public class UserController {
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
         model.addAttribute("currentUser", currentUser);
+        if (currentUser.getSkills()!=null){
         return "skills.jsp";
+        }
+        return "redirect:/";
     }
 
     @PostMapping("/createskills")

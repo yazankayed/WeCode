@@ -86,7 +86,7 @@
                 <div class="content">
                     <h2 class="title text-white bg-black">Freightos</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="company/3" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="company/3" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
             </div>
             <div class="card">
@@ -98,7 +98,7 @@
             </div>
             <div class="card">
                 <div class="content">
-                    <h2 class="title text-white bg-black">Appia Tech</h2>
+                    <h2 class="title text-white bg-black">AppiaTech</h2>
                     <p class="copy text-white bg-black"></p>
                     <a href="company/5" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
@@ -119,7 +119,7 @@
             </div>
             <div class="card">
                 <div class="content">
-                    <h2 class="title text-white bg-black">Up work</h2>
+                    <h2 class="title text-white bg-black">UpWork</h2>
                     <p class="copy text-white bg-black"></p>
                     <a href="company/8" style="background-color: #1abc9c" class="btn btn">Company Info</a>
                 </div>
