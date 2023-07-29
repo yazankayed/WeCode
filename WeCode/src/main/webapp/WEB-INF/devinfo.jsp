@@ -92,7 +92,7 @@
 
 <section class="education" id="education">
     <h1 class="heading"> <span>Skills</span> </h1>
-    <div style="width: 80%; height: 80%;margin: 1% 25%">
+    <div style="width: 60%; height: 80%;margin: 1% 40% 1% 10%; background-color: white">
         <canvas id="myRadarChart" width="400" height="400"></canvas>
 
         <script>
