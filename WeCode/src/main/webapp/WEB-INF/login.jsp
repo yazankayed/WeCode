@@ -24,7 +24,6 @@
                 <div class="input-field">
                     <i class='bx bxs-user'></i>
                     <form:input path="email" type="email" placeholder="Email"/>
-
                 </div>
                 <form:errors path="password"/>
                 <div class="input-field">
