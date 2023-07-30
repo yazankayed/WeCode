@@ -409,10 +409,6 @@ public class UserController {
                 img = "https://www.upwork.com/static/marketing/ui/master/img/logo-1200x630.png";
             }
             model.addAttribute("imag", img);
-
-
-
-
             int min = 10;
             int max = 20;
             double a = Math.random()*(max-min+1)+min;
@@ -420,7 +416,6 @@ public class UserController {
             String u= String.valueOf(b);
             model.addAttribute("u", u);
             model.addAttribute("t", t);
-
             return "companyinfo.jsp";
         }
         return "redirect:/";
@@ -467,7 +462,6 @@ public class UserController {
         if (session.getAttribute("user_id")!=null){x=1;}
         if (session.getAttribute("user_id")==null){x=0;}
         model.addAttribute("x" , x);
-
         Long userId = (Long) session.getAttribute("user_id");
         User currentUser = userServ.findUserById(userId);
         model.addAttribute("currentUser", currentUser);

@@ -8,6 +8,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
+
+import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,13 +19,13 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class CompanyService {
-
-
-
-
-
     @Autowired
     private CompanyRepository companyRepo;
+
+
+    public List<Company> searchCompanies(String keyword) {
+        return companyRepo.findByCompanyNameContainingIgnoreCase(keyword);
+}
 
     public List<Company> allCompanies(){
         return companyRepo.findAll();

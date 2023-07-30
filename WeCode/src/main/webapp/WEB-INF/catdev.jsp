@@ -50,7 +50,7 @@
                 </li>
             </ul>
             <div class="search_bar">
-                <form class="d-flex justify-content-center" role="search">
+                <form class="d-flex justify-content-center" role="search"action="/search" name="keyword">
                     <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search"
                            aria-label="Search">
                     <button style="background-color:#1abc9c" class="btn btn" type="submit" hidden>Search</button>
