@@ -8,11 +8,9 @@ import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
 import java.util.List;
 
 
@@ -289,4 +287,20 @@ public class CompanyController {
         }
         return "redirect:/company/loginform";
     }
+
+    @GetMapping("/search")
+    public String searchBooks(@RequestParam("keyword") String keyword,
+                              Model model,
+                              HttpSession session) {
+
+
+        List<Company> companies = companyService.searchCompanies(keyword);
+        model.addAttribute("companies", companies);
+
+
+
+        return "companySearch.jsp"; // name of the JSP view
+    }
+
+
 }
