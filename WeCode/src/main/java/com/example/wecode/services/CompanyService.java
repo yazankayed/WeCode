@@ -26,6 +26,9 @@ public class CompanyService {
     public List<Company> searchCompanies(String keyword) {
         return companyRepo.findByCompanyNameContainingIgnoreCase(keyword);
 }
+    public List<Company> searchByKeyword(String keyword) {
+        return companyRepo.findByCompanyNameContainingIgnoreCase(keyword);
+    }
 
     public List<Company> allCompanies(){
         return companyRepo.findAll();
