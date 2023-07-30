@@ -313,6 +313,11 @@ public class UserController {
             User currentUser = userServ.findUserById(userId);
             model.addAttribute("currentUser", currentUser);
             model.addAttribute("allMsges", chatService.allChats());
+            int x = 0;
+            if (session.getAttribute("user_id")!=null){x=1;}
+            if (session.getAttribute("user_id")==null){x=0;}
+            model.addAttribute("x" , x);
+            model.addAttribute("allFeedback", feedBackService.allFeedBacks());
 
             return "chat.jsp";
         }
@@ -427,6 +432,9 @@ public class UserController {
 
     @GetMapping("/dev/{id}")
     public String Devinfo(@PathVariable("id") Long id, Model model, HttpSession session){
+        if (session.getAttribute("user_id")==null) {
+            return "redirect:/";
+        }
         if (session.getAttribute("user_id")!=null) {
             Long userId = (Long) session.getAttribute("user_id");
             User currentUser = userServ.findUserById(id);
@@ -482,10 +490,12 @@ public class UserController {
 
 
 
+    @GetMapping("/deleteusers/{id}")
+    public String deleteuserr(@PathVariable("id") Long id){
+        userServ.deleteUserById(id);
+        return "redirect:/logout";
 
-
-
-
+    }
 
 
 

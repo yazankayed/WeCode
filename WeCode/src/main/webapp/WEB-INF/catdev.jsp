@@ -73,7 +73,6 @@
 
 <div style="margin-top: 50px" class="containr">
 
-        <h1>${devs.userName}</h1>
 
 
     <div class="container">
@@ -81,7 +80,7 @@
             <c:forEach items="${category}" var="devs">
             <!-- Team item -->
             <div class="col-xl-3 col-sm-6 mb-5">
-                <div  class="bg-dark rounded shadow-sm py-5 px-4"><img src="${devs.image}" alt="" width="300" height="300" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                <div  class="bg-dark rounded shadow-sm py-5 px-4"><img src="${devs.image}" alt="" class="w-100 h-75 img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
                     <h5 class="text-white mb-0">${devs.userName}</h5><span class="small text-uppercase text-muted"></span>
                     <ul class="social mb-0 list-inline mt-3">
                         <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>

@@ -31,6 +31,11 @@
         <li class="nav-item">
           <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
+
+
+   
+
+
         <c:if test="${x==1}">
           <li class="nav-item">
             <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
@@ -41,6 +46,7 @@
             <a  id="nav_links" class="nav-link active " aria-current="page" href="/">Profile</a>
           </li>
         </c:if>
+
         <li class="nav-item">
           <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
         </li>
