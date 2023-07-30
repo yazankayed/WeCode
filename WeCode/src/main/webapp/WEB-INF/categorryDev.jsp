@@ -24,7 +24,7 @@
 <body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
+    <a id="logo_img" class="navbar-brand" href="/successcompany"> <img class="logo_img" src="/Images/Logo.png"> </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -36,7 +36,7 @@
           <a id="nav_links" class="nav-link active" aria-current="page" href="/successcompany">Home</a>
         </li>
         <li class="nav-item">
-          <a id="nav_links" class="nav-link active " aria-current="page" href="/company/${currentUser.id}">Profile</a>
+          <a id="nav_links" class="nav-link active " aria-current="page" href="/company/${currentCompany.id}">Profile</a>
         </li>
         <li class="nav-item">
           <a id="nav_links" class="nav-link active " aria-current="page" href="/showalldev">Developers</a>
@@ -71,13 +71,14 @@
 
   <h1>${devs.userName}</h1>
 
-
   <div class="container">
     <div class="row text-center">
-      <a href="/devs/${devs.id}">
+
       <c:forEach items="${category}" var="devs">
+       
           <div class="col-xl-3 col-sm-6 mb-5">
-            <div  class="bg-dark rounded shadow-sm py-5 px-4"><img src="${devs.image}" alt="" class="w-100 h-50 img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+
+            <div  class="bg-dark rounded shadow-sm py-5 px-4"><a href="/devs/${devs.id}"><img src="${devs.image}" alt="" class="w-100 h-50 img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"></a>
               <h5 class="text-white mb-0">${devs.userName}</h5><span class="small text-uppercase text-muted"></span>
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
@@ -87,8 +88,9 @@
               </ul>
             </div>
           </div><!-- End -->
+       
       </c:forEach>
-      </a>
+
     </div>
   </div>
 </div>
