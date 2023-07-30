@@ -198,7 +198,28 @@
 
 
 
+<script>
+    $(document).ready(function() {
+        $("#searchInput").on("input", function() {
+            var companyName = $(this).val();
 
+            $.ajax({
+                url: "/searchh",
+                type: "GET",
+                data: {
+                    companyName: companyName
+                },
+                success: function(data) {
+                    var resultsList = $("#results");
+                    resultsList.empty();
+                    data.forEach(function(company) {
+                        resultsList.append("<a href='/companies'> <li>" + company.companyName + "</li></a>");
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
