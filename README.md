@@ -2,12 +2,13 @@ WE Code
 
 We Code:
 
-A recruitment site that enables companies to search for specialized programmers is a platform designed to help businesses find and hire talented software developers with specific skills and experience. These sites typically offer a searchable database of candidates with detailed profiles, including their technical expertise, work experience, and educational background.
-Employers can use the site's search and filtering tools to narrow down the pool of candidates based on their qualifications and experience, and then contact them directly to initiate the hiring process. Many recruitment sites also offer additional services, such as interview scheduling, candidate screening, and background checks, to help streamline the hiring process and ensure that companies find the right candidates for their needs.
-Overall, a recruitment site for specialized programmers can be a valuable resource for companies looking to build a skilled and diverse team of software developers, and for programmers seeking new job opportunities or career advancement.
+A recruitment site that enables companies to search for specialized programmers in a platform designed to help businesses find and hire talented software developers with specific skills and experience. Our site offer a searchable database of candidates with detailed profiles, including their technical expertise, work experience, and educational background.
+Employers can use the site's search and filtering tools to narrow down the pool of candidates based on their qualifications and experience, and then contact them directly to initiate the hiring process.
+this Idea came to provide an easy and fast path for companies to recruit specialized developers as it needs.
 
 
 Functionalities and Features:
+
 1.Search and filter tools: The site may offer advanced search and filter tools that allow employers to find candidates with specific skills, experience, and qualifications.
 2.Candidate profiles: The site may provide detailed candidate profiles that include information such as work experience, education, and technical skills.
 3.Job postings: Employers can post job openings on the site to attract candidates who meet their specific requirements.
