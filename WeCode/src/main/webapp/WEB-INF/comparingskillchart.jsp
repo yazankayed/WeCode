@@ -26,7 +26,7 @@
   </div>
   <nav class="navbar">
     <ul>
-      <li><a href="/">Home</a></li>
+      <li><a href="/successcompany">Home</a></li>
       <c:if test="${g==1}">
         <li><a href="/hireadeveloper/${developer.id}">Hire Now</a></li>
       </c:if>
