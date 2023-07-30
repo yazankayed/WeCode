@@ -25,56 +25,102 @@
 
     <body class="d-flex flex-column min-vh-100">
     <%--nav-bar--%>
-    <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-            <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a  id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
-                    </li>
-                </ul>
-                <div class="search_bar">
-                    <form  class="d-flex justify-content-center" role="search">
-                        <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
-                        <button style="background-color:#1abc9c"  class="btn btn" type="submit" hidden>Search</button>
-                    </form>
+    <c:if test="${t == 0}">
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
+                        </li>
+                    </ul>
+                    <div class="search_bar">
+                        <form  class="d-flex justify-content-center" role="search">
+                            <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                            <button style="background-color:#1abc9c"  class="btn btn" type="submit" hidden>Search</button>
+                        </form>
+                    </div>
+
+                    <c:if test="${x == 0}">
+                        <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
+                    </c:if>
+                    <c:if test="${x == 1}">
+                        <a style="background-color:#1abc9c"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
+                    </c:if>
+
                 </div>
-
-                <c:if test="${x == 0}">
-                    <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
-                </c:if>
-                <c:if test="${x == 1}">
-                    <a style="background-color:#1abc9c"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
-                </c:if>
-
             </div>
-        </div>
-    </nav>
+        </nav>
+    </c:if>
+    <c:if test="${t == 1}">
+        <nav class="navbar navbar-expand-lg bg-dark">
+            <div class="container-fluid">
+                <a id="logo_img" class="navbar-brand" href="/"> <img class="logo_img" src="/Images/Logo.png"> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a id="nav_links" class="nav-link active" aria-current="page" href="/successcompany">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  id="nav_links" class="nav-link active " aria-current="page" href="/company/${currentCompany.id}">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a  id="nav_links" class="nav-link active " aria-current="page" href="/showalldev">Developers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="nav_links" class="nav-link active " aria-current="page" href="/byskillsform/new">Hire By Skills</a>
+                        </li>
+                    </ul>
+                    <div class="search_bar">
+                        <form  class="d-flex justify-content-center" role="search">
+                            <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                            <button style="background-color:#1abc9c"  class="btn btn" type="submit" hidden>Search</button>
+                        </form>
+                    </div>
+
+                    <c:if test="${currentCompany == null}">
+                        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn mx-1" aria-current="page" href="/loginpageuser"> User Log in </a>
+                        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/company/loginform"> Company Log in </a>
+                    </c:if>
+                    <c:if test="${currentCompany =! null}">
+                        <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logoutcompany"> Log out </a>
+                    </c:if>
+
+
+
+                </div>
+            </div>
+        </nav>
+    </c:if>
+
     <div class="container">
         <div class="box">
-            <img src="/images/instagram.png" alt="">
+            <img src="${imag}" alt="">
             <ul>
-                <li>Instagram</li>
-                <li>10 years</li>
+                <li>${comp.companyName}</li>
+                <li>${u} years</li>
                 <li>Social Media</li>
                 <li><i style="font-size:24px" class="fa"></i>
                     <i style="font-size:24px" class="fa"></i>
@@ -88,7 +134,7 @@
 
             <ul>
                 <h3>Country</h3>
-                <li>USA</li>
+                <li>Palestine</li>
             </ul>
             <ul>
                 <h3>More Info</h3>
@@ -101,18 +147,13 @@
             </ul>
             <ul>
                 <h3>Contact</h3>
-                <li>example@gmail.com</li>
+                <li>${comp.email}</li>
             </ul>
         </div>
     </div>
 
 
-    <c:if test="${x == 0}">
-        <a style="background-color:#1abc9c" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
-    </c:if>
-    <c:if test="${x == 1}">
-        <a style="background-color:#1abc9c"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
-    </c:if>
+
 
 
 
