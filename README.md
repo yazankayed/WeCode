@@ -19,48 +19,34 @@ Functionalities and Features:
 7.Analytics and reporting: The site may offer analytics and reporting tools that allow employers to track the performance of their job postings and recruitment campaigns.
 Demo:
 User Registration:
-
-
-
-
-
-
+![UserReg](https://i.imgur.com/yzwAaBC.png) ![UserReg](https://i.imgur.com/1yv11Q2.png)
 
 
 Dashboard:
- 
+![UserReg](https://i.imgur.com/ZRvxnef.png)
 
 Profile user:
 
- 
-
-
-
-
-
-
-
-
-
+ ![UserReg](https://i.imgur.com/Bc4DQIh.jpg)  ![UserReg](https://i.imgur.com/TbczG95.jpg) 
 
 Profile Company:
- 
+  ![UserReg](https://i.imgur.com/Og6Gd49.png)
 
 Developers page:
-
+ ![UserReg](https://i.imgur.com/rSK1GlW.png)
  
 
 Company page:
 
- 
+  ![UserReg](https://i.imgur.com/F3Gtlwk.png)
 
 
 
 
 Contact Us:
- 
+  ![UserReg](https://i.imgur.com/j7dl7sa.png)
 Developers Chat:
- 
+  ![UserReg](https://i.imgur.com/PR1maFi.png)
 
 
 
@@ -73,7 +59,8 @@ Tools:
 Balsamiq: For creating the wireframe
 Trello: For managing the progress of the project and organizing the workflow between the different team members
 Logo:
- 
+  ![UserReg](https://i.imgur.com/lZ3NLy3.png)
+
 Authors:
 -Yousef Shadid
 -Yazan Kayed
