@@ -2,15 +2,17 @@ package com.example.wecode.controllers;
 
 import com.example.wecode.models.*;
 import com.example.wecode.services.*;
+import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.json.JSONArray;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.print.Book;
 import java.util.List;
 
 
@@ -26,7 +28,8 @@ public class CompanyController {
 
     private final ChatService chatService;
 
-    public CompanyController(UserService userServ, CompanyService companyService, CategoryService categoryService, FeedBackService feedBackService, LanguagesService languagesService, SkillsService skillsService, ChatService chatService) {
+    private final EmailSenderService emailSenderService;
+    public CompanyController(UserService userServ, CompanyService companyService, CategoryService categoryService, FeedBackService feedBackService, LanguagesService languagesService, SkillsService skillsService, ChatService chatService, EmailSenderService emailSenderService) {
         this.userServ = userServ;
         this.companyService = companyService;
         this.categoryService = categoryService;
@@ -34,6 +37,7 @@ public class CompanyController {
         this.languagesService = languagesService;
         this.skillsService = skillsService;
         this.chatService = chatService;
+        this.emailSenderService = emailSenderService;
     }
 
 
@@ -302,5 +306,12 @@ public class CompanyController {
         return "companySearch.jsp"; // name of the JSP view
     }
 
+    @EventListener(ApplicationReadyEvent.class)
+    public void triggerMail() throws MessagingException {
+        emailSenderService.sendSimpleEmail("Kareemtaha2013@gmail.com",
+                "This is email body",
+                "This is email subject");
+
+    }
 
 }
