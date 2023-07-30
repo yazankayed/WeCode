@@ -239,6 +239,11 @@ public class CompanyController {
         com.setUsers(users);
         companyService.updateCompany(com);
         userServ.updateUser(h);
+        emailSenderService.sendSimpleEmail(h.getEmail(),
+                "Dear " + h.getUserName(),
+                " I hope this email finds you well. I am delighted to inform you that we have reviewed your application and are thoroughly impressed with your qualifications and experience. Your skills and background align perfectly with the requirements for the " + h.getCategory().getCategoryType() + " position at "+ h.getCompany().getCompanyName() +"\n" +
+                        "\n" +
+                        "At "+ h.getCompany().getCompanyName() +", we are committed to excellence and innovation in our industry, and we believe that your expertise would be a valuable addition to our team. We are excited about the possibility of having you on board to contribute to our continued success. ");
 
         return "redirect:/successcompany";
     }
@@ -306,12 +311,25 @@ public class CompanyController {
         return "companySearch.jsp"; // name of the JSP view
     }
 
-    @EventListener(ApplicationReadyEvent.class)
-    public void triggerMail() throws MessagingException {
-        emailSenderService.sendSimpleEmail("Kareemtaha2013@gmail.com",
-                "This is email body",
-                "This is email subject");
 
-    }
 
+
+//    @EventListener(ApplicationReadyEvent.class)
+//    public void triggerMail() throws MessagingException {
+//        emailSenderService.sendSimpleEmail("Kareemtaha2013@gmail.com",
+//                "This is email body",
+//                "This is email subject");
+//
+//    }
+
+//    @GetMapping("/hireadeveloperr/{id}")
+//    public String triggerMail(
+//            @PathVariable("id") Long id
+//    ) {
+//        User user = userServ.findUserById(id);
+//        emailSenderService.sendSimpleEmail(user.getEmail(),
+//                "This is email body",
+//                "Test Test Test");
+//        return "redirect:/successcompany";
+//    }
 }
