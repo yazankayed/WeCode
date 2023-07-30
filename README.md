@@ -9,22 +9,13 @@ this Idea came to provide an easy and fast path for companies to recruit special
 
 Functionalities and Features:
 
-1.Search and filter tools: The site may offer advanced search and filter tools that allow employers to find candidates with specific skills, experience, and qualifications.
+1.Search and filter tools: The site offer advanced search and filter tools that allow employers to find candidates with specific skills, experience, and qualifications.
 
-2.Candidate profiles: The site may provide detailed candidate profiles that include information such as work experience, education, and technical skills.
+2.Candidate profiles: The site provide detailed candidate profiles that include information such as work experience, education, and technical skills.
 
-3.Job postings: Employers can post job openings on the site to attract candidates who meet their specific requirements.
+3.Communication tools: The site offer communication tools such as emails and Chat for developrs to communicate and help each others.
 
-4.Communication tools: The site may offer communication tools such as email, messaging, or video conferencing to allow employers and candidates to communicate directly.
-
-5.Applicant tracking: The site may offer an applicant tracking system that allows employers to manage job applications and track the hiring process.
-
-
-6.Candidate screening: The site may provide candidate screening services such as background checks, skills assessments, and reference checks.
-
-
-7.Analytics and reporting: The site may offer analytics and reporting tools that allow employers to track the performance of their job postings and recruitment campaigns.
-
+4- Skill Chart : the site offers a skill chart for each employee and skill chart comparison tool for companies to compare what it needs and the skills for each developer.
 Demo:
 User Registration:
 ![UserReg](https://i.imgur.com/yzwAaBC.png) ![UserReg](https://i.imgur.com/1yv11Q2.png)
