@@ -98,7 +98,7 @@
 
   <div class="projcard projcard-blue">
     <div class="projcard-innerbox">
-      <img class="projcard-img" src="https://avatars.githubusercontent.com/u/131177512?v=4" />
+      <img class="projcard-img" src="https://i.imgur.com/BNM2vV3.jpg" />
       <div class="projcard-textbox">
         <div class="projcard-title">Kareem Taha</div>
         <div class="projcard-subtitle">Full-Stack Developer</div>
@@ -114,7 +114,7 @@
 
   <div class="projcard projcard-red">
     <div class="projcard-innerbox">
-      <img class="projcard-img" src="https://avatars.githubusercontent.com/u/125288920?v=4" />
+      <img class="projcard-img" src="https://i.imgur.com/zVPUFEc.jpg" />
       <div class="projcard-textbox">
         <div class="projcard-title">Yazan Kayed</div>
         <div class="projcard-subtitle">Full-Stack Developer</div>
@@ -147,7 +147,7 @@
 
   <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
     <div class="projcard-innerbox">
-      <img class="projcard-img" src="https://cdn3.iconfinder.com/data/icons/diversity-avatars-vol-2/64/blond-sweater-man-avatar-young-512.png" />
+      <img class="projcard-img" src="https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration.jpg" />
       <div class="projcard-textbox">
         <div class="projcard-title">Reziq Bahbah</div>
         <div class="projcard-subtitle">Full-Stack Developer</div>

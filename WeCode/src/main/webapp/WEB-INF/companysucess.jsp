@@ -74,15 +74,17 @@
     </div>
 </div>
 
+
+
 <h1 style="color: #1abc9c; margin-top: 100px" class="text-center">About Us</h1>
 <div class="projcard-container">
 
     <div class="projcard projcard-blue">
         <div class="projcard-innerbox">
-            <img class="projcard-img" src="https://picsum.photos/800/600?image=1041" />
+            <img class="projcard-img" src="https://i.imgur.com/BNM2vV3.jpg" />
             <div class="projcard-textbox">
-                <div class="projcard-title">Card Title</div>
-                <div class="projcard-subtitle">This explains the card in more detail</div>
+                <div class="projcard-title">Kareem Taha</div>
+                <div class="projcard-subtitle">Full-Stack Developer</div>
                 <div class="projcard-bar"></div>
                 <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
                 <div class="projcard-tagbox">
@@ -95,10 +97,10 @@
 
     <div class="projcard projcard-red">
         <div class="projcard-innerbox">
-            <img class="projcard-img" src="https://picsum.photos/800/600?image=1080" />
+            <img class="projcard-img" src="https://i.imgur.com/zVPUFEc.jpg" />
             <div class="projcard-textbox">
-                <div class="projcard-title">That's Another Card</div>
-                <div class="projcard-subtitle">I don't really think that I need to explain anything here</div>
+                <div class="projcard-title">Yazan Kayed</div>
+                <div class="projcard-subtitle">Full-Stack Developer</div>
                 <div class="projcard-bar"></div>
                 <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
                 <div class="projcard-tagbox">
@@ -112,10 +114,10 @@
 
     <div class="projcard projcard-green">
         <div class="projcard-innerbox">
-            <img class="projcard-img" src="https://picsum.photos/800/600?image=1039" />
+            <img class="projcard-img" src="https://i.imgur.com/GnMH6vj.jpg" />
             <div class="projcard-textbox">
-                <div class="projcard-title">And a Third Card</div>
-                <div class="projcard-subtitle">You know what this is by now</div>
+                <div class="projcard-title">Yousef Shadeed</div>
+                <div class="projcard-subtitle">Full-Stack Developer</div>
                 <div class="projcard-bar"></div>
                 <div class="projcard-description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</div>
                 <div class="projcard-tagbox">
@@ -128,10 +130,10 @@
 
     <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
         <div class="projcard-innerbox">
-            <img class="projcard-img" src="https://picsum.photos/800/600?image=943" />
+            <img class="projcard-img" src="https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration.jpg" />
             <div class="projcard-textbox">
-                <div class="projcard-title">Last Card</div>
-                <div class="projcard-subtitle">That's the last one. Have a nice day!</div>
+                <div class="projcard-title">Reziq Bahbah</div>
+                <div class="projcard-subtitle">Full-Stack Developer</div>
                 <div class="projcard-bar"></div>
                 <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
                 <div class="projcard-tagbox">
