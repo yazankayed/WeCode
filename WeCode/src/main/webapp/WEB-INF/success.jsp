@@ -16,6 +16,8 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -60,11 +62,20 @@
           <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
         </li>
       </ul>
+      <div style="margin: -2% 20% 0% 0%">
       <div class="search_bar">
-        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >
-          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">
-          <button style="background-color:#1abc9c"  class="btn btn" type="submit" >Search</button>
-        </form>
+<%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
+<%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
+<%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
+<%--        </form>--%>
+  <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
+<div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
+  <ul id="results"></ul>
+</div>
+
+
+
+      </div>
       </div>
 
       <c:if test="${x == 0}">
@@ -185,6 +196,28 @@
   </footer>
 </div>
 
+  <script>
+    $(document).ready(function() {
+      $("#searchInput").on("input", function() {
+        var companyName = $(this).val();
+
+        $.ajax({
+          url: "/searchh",
+          type: "GET",
+          data: {
+            companyName: companyName
+          },
+          success: function(data) {
+            var resultsList = $("#results");
+            resultsList.empty();
+            data.forEach(function(company) {
+              resultsList.append("<a href='/companies'> <li>" + company.companyName + "</li></a>");
+            });
+          }
+        });
+      });
+    });
+  </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/JS/home.js"></script>

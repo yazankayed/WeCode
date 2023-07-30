@@ -73,6 +73,12 @@ public class UserController {
             return "login.jsp";
         }
         session.setAttribute("user_id", logUser.getId());
+        Long p = (Long) session.getAttribute("user_id");
+        if(p == 1){
+            return "redirect:/adminshowcompanies";
+
+        }
+
         return "redirect:/success";
     }
 

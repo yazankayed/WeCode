@@ -9,6 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
     <link rel="stylesheet" href="/CSS/adminusers.css">
     <title>Admin Show All Users</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="/CSS/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 
@@ -30,27 +39,31 @@
                     <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
+                    <a  id="nav_links" class="nav-link active " aria-current="page" href="#">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
+                    <a  id="nav_links" class="nav-link active " aria-current="page" href="/adminshowusers">Developers</a>
                 </li>
                 <li class="nav-item">
-                    <a  id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
+                    <a  id="nav_links" class="nav-link active  " aria-current="page" href="/adminshowcompanies">Companies</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
+                    <a id="nav_links" class="nav-link active " aria-current="page" href="#">Contact Us</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
+                    <a id="nav_links"  class="nav-link active " aria-current="page" href="#">Chat</a>
                 </li>
             </ul>
-            <div class="search_bar">
-                <form  class="d-flex justify-content-center" role="search">
-                    <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
-                    <button style="background-color:#1abc9c"  class="btn btn" type="submit" hidden>Search</button>
-                </form>
-            </div>
+            <div style="margin: -2% 20% 0% 0%">
+                <div class="search_bar">
+                    <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
+                    <%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
+                    <%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
+                    <%--        </form>--%>
+                    <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
+                    <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
+                        <ul id="results"></ul>
+                    </div></div></div>
 
             <c:if test="${x == 0}">
                 <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
@@ -59,7 +72,10 @@
                 <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
             </c:if>
 
+
+
         </div>
+    </div>
     </div>
 </nav>
 
@@ -166,7 +182,28 @@
     </footer>
 </div>
 
+<script>
+    $(document).ready(function() {
+        $("#searchInput").on("input", function() {
+            var companyName = $(this).val();
 
+            $.ajax({
+                url: "/searchh",
+                type: "GET",
+                data: {
+                    companyName: companyName
+                },
+                success: function(data) {
+                    var resultsList = $("#results");
+                    resultsList.empty();
+                    data.forEach(function(company) {
+                        resultsList.append("<a href='/companies'> <li>" + company.companyName + "</li></a>");
+                    });
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
