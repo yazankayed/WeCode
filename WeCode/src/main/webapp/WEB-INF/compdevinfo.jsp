@@ -5,15 +5,16 @@
 <%@ page isErrorPage="true" %>
 <html>
 <head>
-  <title>Title</title>
-  <%-- font awesome cdn like --%>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+  <title>Title</title>
+  <%-- font awesome cdn like --%>
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="/CSS/devinfe.css">
+
 </head>
 
 <body>
@@ -26,14 +27,13 @@
   </div>
   <nav class="navbar">
     <ul>
-      <li><a href="/">Home</a></li>
+      <li><a href="/successcompany">Home</a></li>
       <c:if test="${g==1}">
         <li><a href="/hireadeveloper/${developer.id}">Hire Now</a></li>
       </c:if>
       <c:if test="${g==0}">
         <li><a href="#">Already Hired</a></li>
       </c:if>
-
     </ul>
   </nav>
 
@@ -100,14 +100,13 @@
 
     <script>
       // Get the JSON array from the model attribute and parse it to a JavaScript array
-      const arr = JSON.parse('<c:out value="${company}" />');
       const arr2= JSON.parse('<c:out value="${employee}" />');
 
       const data = {
         labels: ['Commitment', 'Communication Skills', 'LeaderShip', 'Problem Solving', 'Research Skills', 'Self-Sufficient', 'Teamwork',"Time management","Work Under Pressure"],
         datasets: [{
           label: 'Company Requirements',
-          data: arr,
+          data: arr2,
           fill: true,
           backgroundColor: 'rgba(255, 99, 132, 0.2)',
           borderColor: 'rgb(255, 99, 132)',
@@ -115,16 +114,6 @@
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: 'rgb(255, 99, 132)'
-        },{
-          label: 'Employee Skills',
-          data: arr2,
-          fill: true,
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgb(54, 162, 235)',
-          pointBackgroundColor: 'rgb(54, 162, 235)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgb(54, 162, 235)'
         }]
       };
 
@@ -186,8 +175,7 @@
 
 
 <%--jquery cdn link--%>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="JS/devinfo.js"></script>
 </body>
 

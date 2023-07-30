@@ -7,26 +7,14 @@
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
-    <title>Admin Show All Users</title>
     <link rel="stylesheet" href="/CSS/adminusers.css">
+    <title>Admin Show All Users</title>
 </head>
-<body>
-<%--    <h1>Admin Control All Users</h1>--%>
-<%--    <table>--%>
-<%--        <tr>--%>
-<%--            <th>Users ID</th>--%>
-<%--            <th>Users Name</th>--%>
-<%--            <th>Delete Link</th>--%>
-<%--        </tr>--%>
-<%--        <c:forEach var="i" items="${allusers}">--%>
-<%--            <tr>--%>
-<%--                <td><c:out value="${i.id}"/></td>--%>
-<%--                <td><c:out value="${i.userName}"/></td>--%>
-<%--                <td><a href="/deleteuser/${i.id}">Delete</a></td>--%>
 
-<%--            </tr>--%>
-<%--        </c:forEach>--%>
-<%--    </table>--%>
+
+
+
+
 
 <body class="d-flex flex-column min-vh-100">
 <%--nav-bar--%>
@@ -36,6 +24,42 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
+                </li>
+                <li class="nav-item">
+                    <a  id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a id="nav_links"  class="nav-link active " aria-current="page" href="/chat">Chat</a>
+                </li>
+            </ul>
+            <div class="search_bar">
+                <form  class="d-flex justify-content-center" role="search">
+                    <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search">
+                    <button style="background-color:#1abc9c"  class="btn btn" type="submit" hidden>Search</button>
+                </form>
+            </div>
+
+            <c:if test="${x == 0}">
+                <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
+            </c:if>
+            <c:if test="${x == 1}">
+                <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
+            </c:if>
+
+        </div>
     </div>
 </nav>
 
@@ -47,13 +71,20 @@
                 <div class="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
                     <table class="table manage-candidates-top mb-0">
                         <thead>
+
                         <tr>
-                            <th>Candidate Name</th>
+                            <th>User Name</th>
                             <th class="text-center">Status</th>
                             <th class="action text-right">Action</th>
                         </tr>
                         </thead>
                         <tbody>
+
+
+                        <c:forEach var="i" items="${allusers}">
+
+
+
                         <tr class="candidates-list">
                             <td class="title">
                                 <div class="thumb">
@@ -62,12 +93,12 @@
                                 <div class="candidate-list-details">
                                     <div class="candidate-list-info">
                                         <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Brooke Kelly</a></h5>
+                                            <h5 class="mb-0"><a href="/dev/${i.id}"><c:out value="${i.userName}"/></a></h5>
                                         </div>
                                         <div class="candidate-list-option">
                                             <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Rolling Meadows, IL 60008</li>
+                                                <li><i class="fas fa-filter pr-1"></i>${i.category.categoryType}</li>
+                                                <li><i class="fas fa-map-marker-alt pr-1"></i>${i.location}</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -75,140 +106,30 @@
                             </td>
                             <td class="candidate-list-favourite-time text-center">
                                 <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
+                                <span class="candidate-list-time order-1">
+                                    <c:if test="${i.status == false}">
+                                        Unemployed
+                                    </c:if>
+                                    <c:if test="${i.status == true}">
+                                        Employed
+                                        </c:if>
+                                </span>
                             </td>
                             <td>
                                 <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
+
+                                    <li><a href="/deleteuser/${i.id}" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
                                 </ul>
                             </td>
                         </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Ronald Bradley</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Human Resources</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Monroe Township, NJ 08831</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Rafael Briggs</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Recruitment Consultancy</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Haines City, FL 33844</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Vickie Meyer</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Human Resources</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Minneapolis, MN 55406</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr class="candidates-list">
-                            <td class="title">
-                                <div class="thumb">
-                                    <img class="img-fluid" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="">
-                                </div>
-                                <div class="candidate-list-details">
-                                    <div class="candidate-list-info">
-                                        <div class="candidate-list-title">
-                                            <h5 class="mb-0"><a href="#">Nichole Haynes</a></h5>
-                                        </div>
-                                        <div class="candidate-list-option">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-filter pr-1"></i>Information Technology</li>
-                                                <li><i class="fas fa-map-marker-alt pr-1"></i>Botchergate, Carlisle</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="candidate-list-favourite-time text-center">
-                                <a class="candidate-list-favourite order-2 text-danger" href="#"><i class="fas fa-heart"></i></a>
-                                <span class="candidate-list-time order-1">Shortlisted</span>
-                            </td>
-                            <td>
-                                <ul class="list-unstyled mb-0 d-flex justify-content-end">
-                                    <li><a href="#" class="text-primary" data-toggle="tooltip" title="" data-original-title="view"><i class="far fa-eye"></i></a></li>
-                                    <li><a href="#" class="text-info" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a></li>
-                                    <li><a href="#" class="text-danger" data-toggle="tooltip" title="" data-original-title="Delete"><i class="far fa-trash-alt"></i></a></li>
-                                </ul>
-                            </td>
-                        </tr>
+                        </c:forEach>
+
+
+
+
+
+
+
                         </tbody>
                     </table>
                     <div class="text-center mt-3 mt-sm-3">

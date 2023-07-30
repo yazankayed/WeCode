@@ -1,20 +1,4 @@
 
-<%--        <h1>All Developers</h1>--%>
-<%--        <table>--%>
-<%--            <tr>--%>
-<%--                <th>Users ID</th>--%>
-<%--                <th>Users Name</th>--%>
-<%--            </tr>--%>
-<%--            <c:forEach var="i" items="${allDevelopers}">--%>
-<%--                <tr>--%>
-<%--                    <td><c:out value="${i.id}"/></td>--%>
-<%--                    <td><a href="/devs/${i.id}">${i.userName}</a></td>--%>
-
-<%--                </tr>--%>
-<%--            </c:forEach>--%>
-<%--        </table>--%>
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -85,56 +69,56 @@
                 <div class="content">
                     <h2 class="title text-white bg-black">Front-End</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/2" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/2" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2  class="title text-white bg-black">Back-End</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/1" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/1" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">Full-Stack</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/5" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/5" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">QA</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/3" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/3" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">Database</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/6" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/6" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2  class="title text-white bg-black">Data Science</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/7" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/7" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">DevOps</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/4" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/4" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <h2 class="title text-white bg-black">Hardware Developer</h2>
                     <p class="copy text-white bg-black"></p>
-                    <a href="categorry/8" style="background-color: #1abc9c" class="btn btn">All Developers</a>
+                    <a href="comparing/8" style="background-color: #1abc9c" class="btn btn">All Developers</a>
                 </div>
             </div>
         </main>

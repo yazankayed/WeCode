@@ -31,17 +31,21 @@
         <li class="nav-item">
           <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
-        <c:if test="${x==0}">
-          <li class="nav-item">
-            <a  id="nav_links" class="nav-link active " aria-current="page" href="/">Profile</a>
-          </li>
-        </c:if>
+
+
+   
+
+
         <c:if test="${x==1}">
           <li class="nav-item">
             <a  id="nav_links" class="nav-link active " aria-current="page" href="/dev/${currentUser.id}">Profile</a>
           </li>
         </c:if>
-   
+        <c:if test="${x==0}">
+          <li class="nav-item">
+            <a  id="nav_links" class="nav-link active " aria-current="page" href="/">Profile</a>
+          </li>
+        </c:if>
 
         <li class="nav-item">
           <a  id="nav_links" class="nav-link active " aria-current="page" href="/categories">Developers</a>
@@ -64,11 +68,14 @@
       </div>
 
       <c:if test="${x == 0}">
-        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
+        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn mx-1" aria-current="page" href="/loginpageuser"> User Log in </a>
+        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/company/loginform"> Company Log in </a>
       </c:if>
       <c:if test="${x == 1}">
         <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
       </c:if>
+
+
 
       </div>
     </div>

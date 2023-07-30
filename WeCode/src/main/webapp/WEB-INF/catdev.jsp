@@ -46,9 +46,6 @@
                     <a id="nav_links" class="nav-link active  " aria-current="page" href="/companies">Companies</a>
                 </li>
                 <li class="nav-item">
-                    <a id="nav_links" class="nav-link active " aria-current="page" href="/contactus">Contact Us</a>
-                </li>
-                <li class="nav-item">
                     <a id="nav_links" class="nav-link active " aria-current="page" href="/chat">Chat</a>
                 </li>
             </ul>
