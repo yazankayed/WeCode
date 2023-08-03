@@ -46,6 +46,8 @@
           <a id="nav_links" class="nav-link active " aria-current="page" href="/byskillsform/new">Hire By Skills</a>
         </li>
       </ul>
+
+
       <div style="margin: -2% 20% 0% 0%">
         <div class="search_bar">
           <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
@@ -55,16 +57,16 @@
           <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
           <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
             <ul id="results"></ul>
-          </div>
+          </div></div></div>
 
       <c:if test="${x == 0}">
-        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn"
-           aria-current="page" href="/loginpageuser"> Log in </a>
+        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
       </c:if>
       <c:if test="${x == 1}">
-        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn"
-           aria-current="page" href="/logout"> Log out </a>
+        <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
       </c:if>
+
+
 
     </div>
   </div>
@@ -78,9 +80,9 @@
     <div class="row text-center">
       <c:forEach items="${category}" var="devs">
         <!-- Team item -->
-        <a href="/comparingJobVsDev/${devs.id}">
+
           <div class="col-xl-3 col-sm-6 mb-5">
-            <div  class="bg-dark rounded shadow-sm py-5 px-4"><img src="${devs.image}" alt="" width="300" height="300" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+            <div  class="bg-dark rounded shadow-sm py-5 px-4"> <a href="/comparingJobVsDev/${devs.id}"><img src="${devs.image}" alt=""  class="w-100 h-50 img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"></a>
               <h5 class="text-white mb-0">${devs.userName}</h5><span class="small text-uppercase text-muted"></span>
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
@@ -90,7 +92,7 @@
               </ul>
             </div>
           </div><!-- End -->
-        </a>
+
       </c:forEach>
     </div>
   </div>

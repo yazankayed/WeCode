@@ -35,35 +35,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a id="nav_links" class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a  id="nav_links" class="nav-link active " aria-current="page" href="#">Profile</a>
-                </li>
+
                 <li class="nav-item">
                     <a  id="nav_links" class="nav-link active " aria-current="page" href="/adminshowusers">Developers</a>
                 </li>
                 <li class="nav-item">
                     <a  id="nav_links" class="nav-link active  " aria-current="page" href="/adminshowcompanies">Companies</a>
                 </li>
-                <li class="nav-item">
-                    <a id="nav_links" class="nav-link active " aria-current="page" href="#">Contact Us</a>
-                </li>
-                <li class="nav-item">
-                    <a id="nav_links"  class="nav-link active " aria-current="page" href="#">Chat</a>
-                </li>
             </ul>
-            <div style="margin: -2% 20% 0% 0%">
-                <div class="search_bar">
-                    <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
-                    <%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
-                    <%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
-                    <%--        </form>--%>
-                    <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
-                    <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
-                        <ul id="results"></ul>
-                    </div></div></div>
 
             <c:if test="${x == 0}">
                 <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
@@ -75,7 +54,6 @@
 
 
         </div>
-    </div>
     </div>
 </nav>
 

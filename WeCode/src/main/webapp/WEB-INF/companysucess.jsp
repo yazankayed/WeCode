@@ -41,6 +41,8 @@
                     <a id="nav_links" class="nav-link active " aria-current="page" href="/byskillsform/new">Hire By Skills</a>
                 </li>
             </ul>
+
+
             <div style="margin: -2% 20% 0% 0%">
                 <div class="search_bar">
                     <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
@@ -50,15 +52,16 @@
                     <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
                     <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
                         <ul id="results"></ul>
-                    </div>
+                    </div></div></div>
 
-            <c:if test="${currentCompany == null}">
-                <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn mx-1" aria-current="page" href="/loginpageuser"> User Log in </a>
-                <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/company/loginform"> Company Log in </a>
-            </c:if>
-            <c:if test="${currentCompany =! null}">
-                <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logoutcompany"> Log out </a>
-            </c:if>
+<c:if test="${currentCompany == null}">
+    <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn mx-1" aria-current="page" href="/loginpageuser"> User Log in </a>
+    <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/company/loginform"> Company Log in </a>
+</c:if>
+<c:if test="${currentCompany =! null}">
+    <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logoutcompany"> Log out </a>
+</c:if>
+
 
 
 

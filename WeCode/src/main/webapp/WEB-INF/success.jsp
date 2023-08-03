@@ -63,20 +63,15 @@
         </li>
       </ul>
       <div style="margin: -2% 20% 0% 0%">
-      <div class="search_bar">
-<%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
-<%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
-<%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
-<%--        </form>--%>
-  <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
-<div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
-  <ul id="results"></ul>
-</div>
-
-
-
-      </div>
-      </div>
+        <div class="search_bar">
+          <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
+          <%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
+          <%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
+          <%--        </form>--%>
+          <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
+          <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
+            <ul id="results"></ul>
+          </div></div></div>
 
       <c:if test="${x == 0}">
         <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn mx-1" aria-current="page" href="/loginpageuser"> User Log in </a>
@@ -85,12 +80,10 @@
       <c:if test="${x == 1}">
         <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
       </c:if>
-
-
-
-      </div>
     </div>
+  </div>
 </nav>
+
 
 <%--containter --%>
 <div id="whiteboard"  class="container">
@@ -158,9 +151,9 @@
 
   <div class="projcard projcard-customcolor" style="--projcard-color: #F5AF41;">
     <div class="projcard-innerbox">
-      <img class="projcard-img" src="https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration.jpg" />
+      <img class="projcard-img" src="https://i.imgur.com/FIgq8Sd.jpg" />
       <div class="projcard-textbox">
-        <div class="projcard-title">Reziq Bahbah</div>
+        <div class="projcard-title">Rizek Bahbah</div>
         <div class="projcard-subtitle">Full-Stack Developer</div>
         <div class="projcard-bar"></div>
         <div class="projcard-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>

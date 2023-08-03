@@ -61,25 +61,26 @@
                                                 href="/chat">Chat</a>
                                         </li>
                                     </ul>
-                                    <div style="margin: -2% 20% 0% 0%">
-                                        <div class="search_bar">
-                                            <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
-                                            <%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
-                                            <%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
-                                            <%--        </form>--%>
-                                            <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
-                                            <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
-                                                <ul id="results"></ul>
-                                            </div>
 
-                                    <c:if test="${x == 0}">
-                                        <a style="background-color:#1abc9c; color: white; font-weight: bolder"
-                                            class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
-                                    </c:if>
-                                    <c:if test="${x == 1}">
-                                        <a style="background-color:#1abc9c; color: white; font-weight: bolder"
-                                            class="btn btn" aria-current="page" href="/logout"> Log out </a>
-                                    </c:if>
+                                        <div style="margin: -2% 20% 0% 0%">
+                                            <div class="search_bar">
+                                                <%--        <form  class="d-flex justify-content-center" role="search" action="/search" method="get" >--%>
+                                                <%--          <input style="width: 300px" class="form-control me-3" type="search" placeholder="Search" aria-label="Search" name="keyword">--%>
+                                                <%--          <button style="background-color:#1abc9c"  class="btn btn" id="searchInput" type="submit" >Search</button>--%>
+                                                <%--        </form>--%>
+                                                <input style="width: 300px" class="form-control me-3" aria-label="Search" type="text" id="searchInput" placeholder="Enter company name">
+                                                <div style="background-color: white; height: 50px; color: #FF5722;margin-bottom: -100px ">
+                                                    <ul id="results"></ul>
+                                                </div></div></div>
+
+                                        <c:if test="${x == 0}">
+                                        <a style="background-color:#1abc9c; color: white; font-weight: bolder" class="btn btn" aria-current="page" href="/loginpageuser"> Log in </a>
+                                        </c:if>
+                                        <c:if test="${x == 1}">
+                                        <a style="background-color:#1abc9c; color: white; font-weight: bolder"  class="btn btn" aria-current="page" href="/logout"> Log out </a>
+                                        </c:if>
+
+
 
                                 </div>
                             </div>
